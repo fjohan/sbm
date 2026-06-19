@@ -1,0 +1,89 @@
+You are an autonomous research/coding agent. Create a first-pass survey of existing multimodal language resources that are either in Swedish, include Swedish, or are developed/hosted in Sweden.
+
+Primary focus: first-hand resources/datasets/corpora, not tools, models, demos, or general infrastructure descriptions. Include tools/models only when they point directly to an underlying dataset.
+
+Special attention should be given to resources associated with:
+
+- Språkbanken / SWE-CLARIN
+- HUMINfra
+- Swedish university repositories/labs, especially humanities/language technology labs
+- CLARIN-related resources
+- Hugging Face datasets, GitHub, Zenodo, institutional repositories, and data catalogues
+
+Use a broad definition of multimodality. Include resources combining, for example:
+
+- text + audio
+- speech + video
+- speech + gesture/head movement/gaze
+- writing logs + eye tracking
+- keystroke logging + visual/focus/task context
+- speech + EMA, kinetic, physiological, or sensor data
+- interaction logs + linguistic data
+- image/video/audio paired with linguistic annotation
+
+Use the CLARIN Resource Families multimodal corpora JSON format as the target schema. Reference format examples are in:
+https://github.com/clarin-eric/clarin-resource-families/tree/main/corpora/multimodal-corpora
+
+Each resource object should follow this structure as closely as possible:
+
+{
+  "Name": "",
+  "URL": "",
+  "Family": "",
+  "Description": "",
+  "Language": [],
+  "Licence": "",
+  "Size": [],
+  "Annotation": [],
+  "Infrastructure": "",
+  "Group": "",
+  "Access": {},
+  "Publication": ""
+}
+
+Add extra fields only if needed, using names such as:
+
+{
+  "Modalities": [],
+  "CountryOrInstitution": "",
+  "EvidenceURLs": [],
+  "Confidence": "",
+  "Notes": ""
+}
+
+Tasks:
+
+1. Inspect the CLARIN JSON examples to infer formatting conventions.
+2. Search systematically for Swedish/in-Sweden multimodal resources.
+3. Prioritize primary/first-hand sources: dataset landing pages, repository records, corpus catalogues, CLARIN/SWE-CLARIN records, institutional data pages, Hugging Face dataset cards, Zenodo records, or project pages that provide direct dataset access.
+4. Exclude or de-prioritize pure tools, models, APIs, software packages, demos, and papers without accessible dataset/resource information.
+5. For each candidate, determine:
+   - whether it is genuinely multimodal
+   - what modalities are combined
+   - whether Swedish is included, or whether the resource is Swedish-hosted/developed
+   - access mode: download, restricted access, concordancer/browser, contact, metadata only
+   - licence or access restrictions
+   - annotations and alignment, where available
+   - associated infrastructure, especially SWE-CLARIN, Språkbanken, HUMINFRA, CLARIN, Hugging Face, Zenodo, etc.
+6. Produce:
+   - "multimodal_swedish_resources.json": structured JSON array of resource objects
+   - "index.html": a readable HTML survey generated from the JSON
+   - optionally "sources.md": notes on search queries, rejected candidates, and unresolved ambiguities
+
+HTML requirements:
+
+- Group resources by multimodal type, e.g. text+audio, speech+video, writing+eye-tracking, sensor/EMA, image/video+language, interaction logs.
+- Highlight resources connected to Språkbanken/SWE-CLARIN and HUMINFRA.
+- Include source links for every entry.
+- Mark confidence as high/medium/low.
+- Include a short “Scope and caveats” section explaining that this is a first-pass survey and may miss resources without public metadata.
+
+Quality rules:
+
+- Do not invent licence, size, annotation, or access information.
+- Use empty strings or empty arrays when information is unavailable.
+- Prefer conservative inclusion with a "Notes" field explaining uncertainty.
+- Avoid duplicate entries; merge records that refer to the same underlying resource.
+- Keep the JSON valid and machine-readable.
+- Ensure the HTML is generated from the JSON rather than manually diverging from it.
+

@@ -1,0 +1,171 @@
+[
+  {
+    "Name": "Video-linked Thai/Swedish child data corpus",
+    "URL": "http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view",
+    "Family": "Manually annotated corpora",
+    "Description": "Longitudinal recordings of child-caregiver interaction in everyday contexts. The CLARIN family record describes 60 transcripts from six children in Sweden and Thailand, with videos linked to transcripts on an utterance-by-utterance basis.",
+    "Language": ["swe", "tha"],
+    "Licence": "",
+    "Size": ["60 transcripts"],
+    "Annotation": ["video-transcription alignment", "word segmentation", "phonetic transcription"],
+    "Infrastructure": "CLARIN; Lund University Humanities Lab",
+    "Group": "Video-Audio Corpora",
+    "Access": {
+      "Concordancer": "http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view"
+    },
+    "Publication": "https://www.zotero.org/groups/562080/clarin/collections/2Y9ITDX8/items/XJIL9UWD/",
+    "Modalities": ["video", "audio", "transcripts", "linguistic annotation"],
+    "CountryOrInstitution": "Sweden; Thailand; Lund University Humanities Lab",
+    "EvidenceURLs": [
+      "https://github.com/clarin-eric/clarin-resource-families/blob/main/corpora/multimodal-corpora/video-linked-thai-swe.json",
+      "http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view"
+    ],
+    "Confidence": "high",
+    "Notes": "Included because Swedish is one of the corpus languages and the resource is already represented in the CLARIN multimodal corpus family."
+  },
+  {
+    "Name": "Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)",
+    "URL": "https://teckensprakskorpus.su.se/",
+    "Family": "Manually annotated corpora",
+    "Description": "Web-based corpus tool for searching Swedish Sign Language corpus material. The information page states that video recordings and annotations were produced in the Swedish Sign Language Corpus project and can be downloaded for research and teaching; annotations are intended for use with ELAN.",
+    "Language": ["swl", "swe"],
+    "Licence": "",
+    "Size": [],
+    "Annotation": ["ELAN annotation", "sign glosses", "handform", "articulator", "modification", "comment and tier-based search metadata"],
+    "Infrastructure": "Stockholm University; Department of Linguistics; STS-korpus",
+    "Group": "Video-Audio Corpora",
+    "Access": {
+      "Concordancer": "https://teckensprakskorpus.su.se/",
+      "Download": "https://teckensprakskorpus.su.se/information"
+    },
+    "Publication": "https://su.se/forskning/forskningsprojekt/svensk-teckenspr%C3%A5kskorpus",
+    "Modalities": ["video", "sign language annotation", "gloss/text metadata"],
+    "CountryOrInstitution": "Sweden; Stockholm University",
+    "EvidenceURLs": [
+      "https://teckensprakskorpus.su.se/",
+      "https://teckensprakskorpus.su.se/information"
+    ],
+    "Confidence": "high",
+    "Notes": "The site is in Swedish. Licence details were not stated in the inspected public page; access appears to require registration for some downloads."
+  },
+  {
+    "Name": "RixVox-v2",
+    "URL": "https://huggingface.co/datasets/KBLab/rixvox-v2",
+    "Family": "Automatically annotated corpora",
+    "Description": "Swedish parliamentary speech dataset from the National Library of Sweden / KBLab. The Hugging Face record describes audio and text data built by matching and force-aligning parliamentary protocols to media recordings of debates.",
+    "Language": ["swe"],
+    "Licence": "ODC-BY",
+    "Size": ["3.56M rows", "nearly 23000 hours of speech"],
+    "Annotation": ["forced alignment", "speaker metadata", "party metadata", "role metadata", "date metadata", "speech/protocol identifiers", "automatic transcription fields"],
+    "Infrastructure": "Hugging Face; National Library of Sweden / KBLab",
+    "Group": "Audio Corpora",
+    "Access": {
+      "Download": "https://huggingface.co/datasets/KBLab/rixvox-v2"
+    },
+    "Publication": "",
+    "Modalities": ["audio", "text", "speaker metadata", "alignment metadata"],
+    "CountryOrInstitution": "Sweden; National Library of Sweden / KBLab",
+    "EvidenceURLs": [
+      "https://huggingface.co/datasets/KBLab/rixvox-v2",
+      "https://huggingface.co/datasets/KBLab/rixvox"
+    ],
+    "Confidence": "high",
+    "Notes": "Merged with the earlier RixVox record as the same underlying parliamentary-speech resource family; v2 is listed as the current, larger dataset."
+  },
+  {
+    "Name": "SweDia 2000",
+    "URL": "http://swedia.ling.gu.se/",
+    "Family": "Spoken corpora",
+    "Description": "Website for listening to recordings of more than 100 Swedish dialects recorded across Sweden and Swedish-speaking parts of Finland. It is included as a Swedish-hosted speech resource with audio linked to dialect/location context.",
+    "Language": ["swe"],
+    "Licence": "",
+    "Size": ["more than 100 dialects"],
+    "Annotation": [],
+    "Infrastructure": "University of Gothenburg and Swedish dialect research context",
+    "Group": "Audio Corpora",
+    "Access": {
+      "Concordancer": "http://swedia.ling.gu.se/"
+    },
+    "Publication": "",
+    "Modalities": ["audio", "geographic/dialect metadata", "web text"],
+    "CountryOrInstitution": "Sweden; University of Gothenburg",
+    "EvidenceURLs": [
+      "http://swedia.ling.gu.se/"
+    ],
+    "Confidence": "medium",
+    "Notes": "The landing page clearly exposes audio listening and dialect metadata, but the first-pass inspection did not verify downloadable corpus files or systematic transcription availability."
+  },
+  {
+    "Name": "FLEURS Swedish (sv_se)",
+    "URL": "https://huggingface.co/datasets/google/fleurs",
+    "Family": "Automatically annotated corpora",
+    "Description": "Swedish subset of Google's FLEURS multilingual speech dataset. The Hugging Face dataset card lists audio and text modalities, Swedish (sv_se) as one subset, and fields for audio, transcription and raw transcription.",
+    "Language": ["swe"],
+    "Licence": "CC-BY-4.0",
+    "Size": ["3.47k rows for sv_se"],
+    "Annotation": ["transcription", "raw transcription", "gender metadata", "language metadata"],
+    "Infrastructure": "Hugging Face; Google",
+    "Group": "Audio Corpora",
+    "Access": {
+      "Download": "https://huggingface.co/datasets/google/fleurs"
+    },
+    "Publication": "https://arxiv.org/abs/2205.12446",
+    "Modalities": ["audio", "text"],
+    "CountryOrInstitution": "International; includes Swedish",
+    "EvidenceURLs": [
+      "https://huggingface.co/datasets/google/fleurs"
+    ],
+    "Confidence": "high",
+    "Notes": "Included because Swedish is an explicit language subset; not Sweden-hosted."
+  },
+  {
+    "Name": "Mozilla Common Voice Swedish",
+    "URL": "https://commonvoice.mozilla.org/en/datasets",
+    "Family": "Crowdsourced corpora",
+    "Description": "Crowdsourced speech corpus pairing voice recordings with prompt text and validation metadata. The older Hugging Face record for Common Voice 17.0 states that Common Voice datasets moved to Mozilla Data Collective in October 2025.",
+    "Language": ["swe"],
+    "Licence": "",
+    "Size": [],
+    "Annotation": ["sentence prompts", "speaker metadata where volunteered", "validation metadata"],
+    "Infrastructure": "Mozilla Common Voice; Mozilla Data Collective",
+    "Group": "Audio Corpora",
+    "Access": {
+      "Download": "https://commonvoice.mozilla.org/en/datasets",
+      "Catalogue": "https://mozilladatacollective.com/"
+    },
+    "Publication": "",
+    "Modalities": ["audio", "text", "speaker metadata"],
+    "CountryOrInstitution": "International; includes Swedish",
+    "EvidenceURLs": [
+      "https://commonvoice.mozilla.org/en/datasets",
+      "https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0",
+      "https://mozilladatacollective.com/"
+    ],
+    "Confidence": "medium",
+    "Notes": "Included as a well-known Swedish speech/text resource, but current download and licence details should be rechecked in Mozilla Data Collective because the old Hugging Face dataset record is now empty."
+  },
+  {
+    "Name": "MuMiN multilingual multimodal misinformation dataset",
+    "URL": "https://mumin-dataset.github.io/",
+    "Family": "Social media corpora",
+    "Description": "Large-scale multilingual multimodal fact-checked misinformation dataset structured as a heterogeneous graph. The project page describes tweets, users, Twitter threads and fact-checked claims in 41 languages, with source code for compiling/exporting the dataset.",
+    "Language": [],
+    "Licence": "",
+    "Size": ["21,565,018 tweets", "1,986,354 users", "26,048 Twitter threads", "12,914 fact-checked claims", "41 languages"],
+    "Annotation": ["claim verdict labels", "tweet classification labels", "graph links", "fact-checking metadata"],
+    "Infrastructure": "GitHub; Python package",
+    "Group": "Social Media Corpora",
+    "Access": {
+      "Download": "https://github.com/mumin-dataset/MuMiN-build"
+    },
+    "Publication": "https://arxiv.org/abs/2202.11684",
+    "Modalities": ["social media text", "images", "articles", "graph metadata", "fact-check labels"],
+    "CountryOrInstitution": "Denmark/UK authorship; multilingual",
+    "EvidenceURLs": [
+      "https://mumin-dataset.github.io/",
+      "https://github.com/mumin-dataset/MuMiN-build"
+    ],
+    "Confidence": "low",
+    "Notes": "Potential Swedish-language inclusion is plausible under the 41-language coverage but was not verified in the first-pass source inspection. Retained as a low-confidence lead because it is genuinely multimodal and multilingual."
+  }
+]

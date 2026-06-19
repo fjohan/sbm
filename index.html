@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First-Pass Survey of Swedish Multimodal Language Resources</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fa;
+      --text: #1d2329;
+      --muted: #5d6875;
+      --line: #d9e0e7;
+      --panel: #ffffff;
+      --accent: #1f5f8b;
+      --accent-soft: #e8f2f8;
+      --huminfra: #6f4a8e;
+      --clarin: #116a57;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+    }
+    header, main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px;
+    }
+    header {
+      padding-top: 44px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 34px 0 14px;
+      font-size: 1.35rem;
+    }
+    h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .summary span, .chip {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: var(--panel);
+      color: var(--text);
+      font-size: 0.86rem;
+    }
+    .scope {
+      margin: 22px 0 30px;
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+    }
+    .resource {
+      margin: 14px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+    .resource-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .confidence {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border: 1px solid var(--line);
+    }
+    .confidence.high { background: #e7f6ee; color: #145334; }
+    .confidence.medium { background: #fff5d7; color: #614800; }
+    .confidence.low { background: #fbe6e8; color: #7f1d2d; }
+    dl {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 8px 14px;
+      margin: 14px 0 0;
+    }
+    dt {
+      color: var(--muted);
+      font-weight: 650;
+    }
+    dd {
+      margin: 0;
+      min-width: 0;
+    }
+    .empty {
+      color: var(--muted);
+      font-style: italic;
+    }
+    .tag-highlight {
+      color: var(--clarin);
+      font-weight: 700;
+    }
+    .tag-huminfra {
+      color: var(--huminfra);
+      font-weight: 700;
+    }
+    footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    @media (max-width: 720px) {
+      .resource-head { display: block; }
+      .confidence { display: inline-block; margin-top: 8px; }
+      dl { grid-template-columns: 1fr; }
+      dt { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>First-Pass Survey of Swedish Multimodal Language Resources</h1>
+    <p>Resources that are in Swedish, include Swedish, or are developed/hosted in Sweden, with emphasis on primary datasets and corpus records.</p>
+    <div class="summary">
+      <span>7 resources</span>
+      <span>4 high confidence</span>
+      <span>Generated from multimodal_swedish_resources.json</span>
+    </div>
+  </header>
+  <main>
+    <section class="scope">
+      <h2>Scope and Caveats</h2>
+      <p>This is a first-pass survey, not an exhaustive inventory. It prioritizes primary corpus pages, repository records, data cards, and CLARIN-style records. Some Swedish or Sweden-hosted resources may be missing when public metadata was not indexed, had moved, or required interactive login.</p>
+      <p>Unknown licence, size, annotation, and access details are left blank or marked as not found rather than inferred. Low-confidence entries should be treated as leads for follow-up verification.</p>
+    </section>
+    
+        <section>
+          <h2>Speech, Video, Sign, and Gesture</h2>
+          
+        <article class="resource">
+          <div class="resource-head">
+            <h3><a href="http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view">Video-linked Thai/Swedish child data corpus</a></h3>
+            <span class="confidence high">high confidence</span>
+          </div>
+          <p>Longitudinal recordings of child-caregiver interaction in everyday contexts. The CLARIN family record describes 60 transcripts from six children in Sweden and Thailand, with videos linked to transcripts on an utterance-by-utterance basis.</p>
+          <dl>
+            <dt>Modalities</dt><dd><span class="chip">video</span> <span class="chip">audio</span> <span class="chip">transcripts</span> <span class="chip">linguistic annotation</span></dd>
+            <dt>Language</dt><dd><span class="chip">swe</span> <span class="chip">tha</span></dd>
+            <dt>Licence</dt><dd>not found in first pass</dd>
+            <dt>Size</dt><dd><span class="chip">60 transcripts</span></dd>
+            <dt>Annotation</dt><dd><span class="chip">video-transcription alignment</span> <span class="chip">word segmentation</span> <span class="chip">phonetic transcription</span></dd>
+            <dt>Infrastructure</dt><dd><span class="tag-highlight">CLARIN; Lund University Humanities Lab</span></dd>
+            <dt>Access</dt><dd><span>Concordancer: <a href="http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view">http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view</a></span></dd>
+            <dt>Institution</dt><dd>Sweden; Thailand; Lund University Humanities Lab</dd>
+            <dt>Evidence</dt><dd><a href="https://github.com/clarin-eric/clarin-resource-families/blob/main/corpora/multimodal-corpora/video-linked-thai-swe.json">source 1</a> <a href="http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view">source 2</a></dd>
+            <dt>Notes</dt><dd>Included because Swedish is one of the corpus languages and the resource is already represented in the CLARIN multimodal corpus family.</dd>
+          </dl>
+        </article>
+
+        <article class="resource">
+          <div class="resource-head">
+            <h3><a href="https://teckensprakskorpus.su.se/">Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)</a></h3>
+            <span class="confidence high">high confidence</span>
+          </div>
+          <p>Web-based corpus tool for searching Swedish Sign Language corpus material. The information page states that video recordings and annotations were produced in the Swedish Sign Language Corpus project and can be downloaded for research and teaching; annotations are intended for use with ELAN.</p>
+          <dl>
+            <dt>Modalities</dt><dd><span class="chip">video</span> <span class="chip">sign language annotation</span> <span class="chip">gloss/text metadata</span></dd>
+            <dt>Language</dt><dd><span class="chip">swl</span> <span class="chip">swe</span></dd>
+            <dt>Licence</dt><dd>not found in first pass</dd>
+            <dt>Size</dt><dd><span class="empty">not found in first pass</span></dd>
+            <dt>Annotation</dt><dd><span class="chip">ELAN annotation</span> <span class="chip">sign glosses</span> <span class="chip">handform</span> <span class="chip">articulator</span> <span class="chip">modification</span> <span class="chip">comment and tier-based search metadata</span></dd>
+            <dt>Infrastructure</dt><dd><span class="">Stockholm University; Department of Linguistics; STS-korpus</span></dd>
+            <dt>Access</dt><dd><span>Concordancer: <a href="https://teckensprakskorpus.su.se/">https://teckensprakskorpus.su.se/</a></span><br><span>Download: <a href="https://teckensprakskorpus.su.se/information">https://teckensprakskorpus.su.se/information</a></span></dd>
+            <dt>Institution</dt><dd>Sweden; Stockholm University</dd>
+            <dt>Evidence</dt><dd><a href="https://teckensprakskorpus.su.se/">source 1</a> <a href="https://teckensprakskorpus.su.se/information">source 2</a></dd>
+            <dt>Notes</dt><dd>The site is in Swedish. Licence details were not stated in the inspected public page; access appears to require registration for some downloads.</dd>
+          </dl>
+        </article>
+        </section>
+
+        <section>
+          <h2>Text and Audio</h2>
+          
+        <article class="resource">
+          <div class="resource-head">
+            <h3><a href="https://huggingface.co/datasets/KBLab/rixvox-v2">RixVox-v2</a></h3>
+            <span class="confidence high">high confidence</span>
+          </div>
+          <p>Swedish parliamentary speech dataset from the National Library of Sweden / KBLab. The Hugging Face record describes audio and text data built by matching and force-aligning parliamentary protocols to media recordings of debates.</p>
+          <dl>
+            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">text</span> <span class="chip">speaker metadata</span> <span class="chip">alignment metadata</span></dd>
+            <dt>Language</dt><dd><span class="chip">swe</span></dd>
+            <dt>Licence</dt><dd>ODC-BY</dd>
+            <dt>Size</dt><dd><span class="chip">3.56M rows</span> <span class="chip">nearly 23000 hours of speech</span></dd>
+            <dt>Annotation</dt><dd><span class="chip">forced alignment</span> <span class="chip">speaker metadata</span> <span class="chip">party metadata</span> <span class="chip">role metadata</span> <span class="chip">date metadata</span> <span class="chip">speech/protocol identifiers</span> <span class="chip">automatic transcription fields</span></dd>
+            <dt>Infrastructure</dt><dd><span class="">Hugging Face; National Library of Sweden / KBLab</span></dd>
+            <dt>Access</dt><dd><span>Download: <a href="https://huggingface.co/datasets/KBLab/rixvox-v2">https://huggingface.co/datasets/KBLab/rixvox-v2</a></span></dd>
+            <dt>Institution</dt><dd>Sweden; National Library of Sweden / KBLab</dd>
+            <dt>Evidence</dt><dd><a href="https://huggingface.co/datasets/KBLab/rixvox-v2">source 1</a> <a href="https://huggingface.co/datasets/KBLab/rixvox">source 2</a></dd>
+            <dt>Notes</dt><dd>Merged with the earlier RixVox record as the same underlying parliamentary-speech resource family; v2 is listed as the current, larger dataset.</dd>
+          </dl>
+        </article>
+
+        <article class="resource">
+          <div class="resource-head">
+            <h3><a href="http://swedia.ling.gu.se/">SweDia 2000</a></h3>
+            <span class="confidence medium">medium confidence</span>
+          </div>
+          <p>Website for listening to recordings of more than 100 Swedish dialects recorded across Sweden and Swedish-speaking parts of Finland. It is included as a Swedish-hosted speech resource with audio linked to dialect/location context.</p>
+          <dl>
+            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">geographic/dialect metadata</span> <span class="chip">web text</span></dd>
+            <dt>Language</dt><dd><span class="chip">swe</span></dd>
+            <dt>Licence</dt><dd>not found in first pass</dd>
+            <dt>Size</dt><dd><span class="chip">more than 100 dialects</span></dd>
+            <dt>Annotation</dt><dd><span class="empty">not found in first pass</span></dd>
+            <dt>Infrastructure</dt><dd><span class="">University of Gothenburg and Swedish dialect research context</span></dd>
+            <dt>Access</dt><dd><span>Concordancer: <a href="http://swedia.ling.gu.se/">http://swedia.ling.gu.se/</a></span></dd>
+            <dt>Institution</dt><dd>Sweden; University of Gothenburg</dd>
+            <dt>Evidence</dt><dd><a href="http://swedia.ling.gu.se/">source 1</a></dd>
+            <dt>Notes</dt><dd>The landing page clearly exposes audio listening and dialect metadata, but the first-pass inspection did not verify downloadable corpus files or systematic transcription availability.</dd>
+          </dl>
+        </article>
+
+        <article class="resource">
+          <div class="resource-head">
+            <h3><a href="https://huggingface.co/datasets/google/fleurs">FLEURS Swedish (sv_se)</a></h3>
+            <span class="confidence high">high confidence</span>
+          </div>
+          <p>Swedish subset of Google's FLEURS multilingual speech dataset. The Hugging Face dataset card lists audio and text modalities, Swedish (sv_se) as one subset, and fields for audio, transcription and raw transcription.</p>
+          <dl>
+            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">text</span></dd>
+            <dt>Language</dt><dd><span class="chip">swe</span></dd>
+            <dt>Licence</dt><dd>CC-BY-4.0</dd>
+            <dt>Size</dt><dd><span class="chip">3.47k rows for sv_se</span></dd>
+            <dt>Annotation</dt><dd><span class="chip">transcription</span> <span class="chip">raw transcription</span> <span class="chip">gender metadata</span> <span class="chip">language metadata</span></dd>
+            <dt>Infrastructure</dt><dd><span class="">Hugging Face; Google</span></dd>
+            <dt>Access</dt><dd><span>Download: <a href="https://huggingface.co/datasets/google/fleurs">https://huggingface.co/datasets/google/fleurs</a></span></dd>
+            <dt>Institution</dt><dd>International; includes Swedish</dd>
+            <dt>Evidence</dt><dd><a href="https://huggingface.co/datasets/google/fleurs">source 1</a></dd>
+            <dt>Notes</dt><dd>Included because Swedish is an explicit language subset; not Sweden-hosted.</dd>
+          </dl>
+        </article>
+
+        <article class="resource">
+          <div class="resource-head">
+            <h3><a href="https://commonvoice.mozilla.org/en/datasets">Mozilla Common Voice Swedish</a></h3>
+            <span class="confidence medium">medium confidence</span>
+          </div>
+          <p>Crowdsourced speech corpus pairing voice recordings with prompt text and validation metadata. The older Hugging Face record for Common Voice 17.0 states that Common Voice datasets moved to Mozilla Data Collective in October 2025.</p>
+          <dl>
+            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">text</span> <span class="chip">speaker metadata</span></dd>
+            <dt>Language</dt><dd><span class="chip">swe</span></dd>
+            <dt>Licence</dt><dd>not found in first pass</dd>
+            <dt>Size</dt><dd><span class="empty">not found in first pass</span></dd>
+            <dt>Annotation</dt><dd><span class="chip">sentence prompts</span> <span class="chip">speaker metadata where volunteered</span> <span class="chip">validation metadata</span></dd>
+            <dt>Infrastructure</dt><dd><span class="">Mozilla Common Voice; Mozilla Data Collective</span></dd>
+            <dt>Access</dt><dd><span>Download: <a href="https://commonvoice.mozilla.org/en/datasets">https://commonvoice.mozilla.org/en/datasets</a></span><br><span>Catalogue: <a href="https://mozilladatacollective.com/">https://mozilladatacollective.com/</a></span></dd>
+            <dt>Institution</dt><dd>International; includes Swedish</dd>
+            <dt>Evidence</dt><dd><a href="https://commonvoice.mozilla.org/en/datasets">source 1</a> <a href="https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0">source 2</a> <a href="https://mozilladatacollective.com/">source 3</a></dd>
+            <dt>Notes</dt><dd>Included as a well-known Swedish speech/text resource, but current download and licence details should be rechecked in Mozilla Data Collective because the old Hugging Face dataset record is now empty.</dd>
+          </dl>
+        </article>
+        </section>
+
+        <section>
+          <h2>Interaction Logs, Social Media, and Language</h2>
+          
+        <article class="resource">
+          <div class="resource-head">
+            <h3><a href="https://mumin-dataset.github.io/">MuMiN multilingual multimodal misinformation dataset</a></h3>
+            <span class="confidence low">low confidence</span>
+          </div>
+          <p>Large-scale multilingual multimodal fact-checked misinformation dataset structured as a heterogeneous graph. The project page describes tweets, users, Twitter threads and fact-checked claims in 41 languages, with source code for compiling/exporting the dataset.</p>
+          <dl>
+            <dt>Modalities</dt><dd><span class="chip">social media text</span> <span class="chip">images</span> <span class="chip">articles</span> <span class="chip">graph metadata</span> <span class="chip">fact-check labels</span></dd>
+            <dt>Language</dt><dd><span class="empty">not found in first pass</span></dd>
+            <dt>Licence</dt><dd>not found in first pass</dd>
+            <dt>Size</dt><dd><span class="chip">21,565,018 tweets</span> <span class="chip">1,986,354 users</span> <span class="chip">26,048 Twitter threads</span> <span class="chip">12,914 fact-checked claims</span> <span class="chip">41 languages</span></dd>
+            <dt>Annotation</dt><dd><span class="chip">claim verdict labels</span> <span class="chip">tweet classification labels</span> <span class="chip">graph links</span> <span class="chip">fact-checking metadata</span></dd>
+            <dt>Infrastructure</dt><dd><span class="">GitHub; Python package</span></dd>
+            <dt>Access</dt><dd><span>Download: <a href="https://github.com/mumin-dataset/MuMiN-build">https://github.com/mumin-dataset/MuMiN-build</a></span></dd>
+            <dt>Institution</dt><dd>Denmark/UK authorship; multilingual</dd>
+            <dt>Evidence</dt><dd><a href="https://mumin-dataset.github.io/">source 1</a> <a href="https://github.com/mumin-dataset/MuMiN-build">source 2</a></dd>
+            <dt>Notes</dt><dd>Potential Swedish-language inclusion is plausible under the 41-language coverage but was not verified in the first-pass source inspection. Retained as a low-confidence lead because it is genuinely multimodal and multilingual.</dd>
+          </dl>
+        </article>
+        </section>
+  </main>
+  <footer>
+    Highlighting uses available infrastructure metadata: CLARIN/SWE-CLARIN/Sprakbanken connections appear in green; no public HUMINFRA-specific dataset record was verified in this pass.
+  </footer>
+</body>
+</html>
