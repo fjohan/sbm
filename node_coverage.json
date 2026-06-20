@@ -1,0 +1,101 @@
+[
+  {
+    "Node": "Språkbanken Text, University of Gothenburg",
+    "URL": "https://sprakbanken.gu.se/",
+    "Role": "CLARIN C-centre for Swedish text resources and tools.",
+    "Status": "reviewed",
+    "SurveyTreatment": "Relevant infrastructure; primarily text resources, not a main source of multimodal entries in this pass.",
+    "RelatedResources": [],
+    "Notes": "Important for Swedish text corpora and annotation infrastructure. Multimodal resource discovery should continue through resource records rather than the node overview alone."
+  },
+  {
+    "Node": "Språkbanken Tal, KTH",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kth.html",
+    "Role": "Speech analysis and Swedish speech-technology resources.",
+    "Status": "confirmed resources",
+    "SurveyTreatment": "Primary source for KTH speech resources.",
+    "RelatedResources": ["SpeechDat Swedish (KTH Hugging Face release)", "Waxholm corpus"],
+    "Notes": "Hugging Face records under the KTH organization now provide direct access points for SpeechDat and Waxholm."
+  },
+  {
+    "Node": "Språkbanken Sam, Isof",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/isof.html",
+    "Role": "Language and folklore archive resources, dialects, names and folk-memory material.",
+    "Status": "confirmed resources",
+    "SurveyTreatment": "Primary source for Swedish archive audio/text/map resources.",
+    "RelatedResources": ["Folke", "Isof dialect and folklore recordings / Intervjuer och inspelningar", "Dialektkartan"],
+    "Notes": "Folke and Dialektkartan expose public browser interfaces; large underlying collections may have access restrictions."
+  },
+  {
+    "Node": "Datorlingvistikgruppen, Uppsala University",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/uu.html",
+    "Role": "Computational linguistics, DiaRes, CLARIN-SMS, historical text and parsing resources.",
+    "Status": "reviewed",
+    "SurveyTreatment": "Mentioned as a node; no confirmed public Swedish multimodal dataset found in this pass.",
+    "RelatedResources": [],
+    "Notes": "Named resources include HistCorp, Swedish Treebank, Decode and Swedish Diachronic Corpus. These are important but appear primarily text/tool oriented from the public node page."
+  },
+  {
+    "Node": "GRIDH, University of Gothenburg",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/gridh.html",
+    "Role": "Digital humanities infrastructure, text analysis, data visualization/publication and DH projects.",
+    "Status": "reviewed lead",
+    "SurveyTreatment": "Mentioned as a node; no confirmed Swedish language-resource dataset added.",
+    "RelatedResources": [],
+    "Notes": "Public node page mentions 3D rock-art analysis, image recognition and performing-arts mapping; these are multimodal DH leads but not confirmed Swedish language resources."
+  },
+  {
+    "Node": "Humanistlaboratoriet, Lund University",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/lu.html",
+    "Role": "CLARIN-MULTISENS C/K-centre for multimodal and sensor-based data.",
+    "Status": "confirmed resources",
+    "SurveyTreatment": "Primary source for Swedish or Swedish-relevant multimodal/sensor resources.",
+    "RelatedResources": ["Video-linked Thai/Swedish child data corpus", "Eye-Tracked Frog Stories", "Tactile Reading", "SweDia 2000"],
+    "Notes": "The Lund archive also hosts many non-Swedish language-documentation collections; those were excluded from the main JSON unless Swedish content was verified."
+  },
+  {
+    "Node": "Humlab, Umeå University",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/umu.html",
+    "Role": "Humlab DigiTal speech-processing infrastructure and support for recorded speech workflows.",
+    "Status": "reviewed lead",
+    "SurveyTreatment": "Mentioned as a node; no concrete public dataset added.",
+    "RelatedResources": [],
+    "Notes": "Node page says the initial focus is Sami material and legally sensitive recordings, with public versions of corpora as a goal."
+  },
+  {
+    "Node": "Institutionen för lingvistik, Stockholm University",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/su.html",
+    "Role": "Computational linguistics and Swedish Sign Language resources.",
+    "Status": "confirmed resources",
+    "SurveyTreatment": "Primary source for Swedish Sign Language corpus evidence.",
+    "RelatedResources": ["Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)"],
+    "Notes": "The node page states STS-korpusen had 18 hours of video and 146,000 annotated sign tokens as of 2019-12-31."
+  },
+  {
+    "Node": "Kungliga biblioteket / KBLab",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kb.html",
+    "Role": "National Library of Sweden language resources, cultural heritage data and KBLab datasets.",
+    "Status": "confirmed resources",
+    "SurveyTreatment": "Primary source for parliamentary speech via KBLab.",
+    "RelatedResources": ["RixVox-v2"],
+    "Notes": "KBLab Hugging Face datasets include RixVox-v2, a Swedish parliamentary speech resource."
+  },
+  {
+    "Node": "Institutionen för datavetenskap, Linköping University",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/liu.html",
+    "Role": "Text-based language resources, translation corpora, treebanks and Swedish/multilingual text processing.",
+    "Status": "reviewed",
+    "SurveyTreatment": "Mentioned as a node; no confirmed public Swedish multimodal dataset found in this pass.",
+    "RelatedResources": [],
+    "Notes": "Named resources include Linköping Translation Corpus, LinES and easy-to-read corpora; public description is text-resource focused."
+  },
+  {
+    "Node": "Riksarkivet",
+    "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/ra.html",
+    "Role": "National archive, historical documents, maps, images and DiaRes participation.",
+    "Status": "reviewed lead",
+    "SurveyTreatment": "Mentioned as a node; potential image+text/OCR archive source but no packaged dataset added.",
+    "RelatedResources": [],
+    "Notes": "Public node page points to NAD and Digitala forskarsalen. Further work should check APIs, OCR/transcription datasets and metadata-only records."
+  }
+]

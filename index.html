@@ -7,315 +7,671 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f8fa;
-      --text: #1d2329;
-      --muted: #5d6875;
-      --line: #d9e0e7;
+      --bg: #f6f8f8;
       --panel: #ffffff;
-      --accent: #1f5f8b;
-      --accent-soft: #e8f2f8;
-      --huminfra: #6f4a8e;
-      --clarin: #116a57;
+      --header: #eef4f4;
+      --header-strong: #18353d;
+      --text: #1f2a30;
+      --muted: #5a6970;
+      --line: #ccd8d9;
+      --line-soft: #e5ecec;
+      --accent: #1f6f82;
+      --accent-soft: #e6f1f3;
+      --warning: #fff4cf;
+      --high: #dff3e8;
+      --medium: #fff1c9;
+      --low: #f7dfe1;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.45;
       color: var(--text);
       background: var(--bg);
     }
-    header, main {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 28px 20px;
-    }
-    header {
-      padding-top: 44px;
-      border-bottom: 1px solid var(--line);
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-    h2 {
-      margin: 34px 0 14px;
-      font-size: 1.35rem;
-    }
-    h3 {
-      margin: 0;
-      font-size: 1.05rem;
-    }
-    p {
-      margin: 0 0 12px;
-      color: var(--muted);
-    }
+
     a {
       color: var(--accent);
       text-decoration-thickness: 1px;
       text-underline-offset: 2px;
     }
-    .summary {
+
+    header {
+      background: var(--header);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--header-strong);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: var(--header-strong);
+      font-size: 1.28rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--header-strong);
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .lead {
+      max-width: 980px;
+      font-size: 1.02rem;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border: 1px solid #d7c37d;
+      border-radius: 4px;
+      background: var(--warning);
+      color: #4d421b;
+    }
+
+    .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       margin-top: 18px;
     }
-    .summary span, .chip {
-      display: inline-block;
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 11px;
       border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 3px 9px;
+      border-radius: 4px;
       background: var(--panel);
-      color: var(--text);
-      font-size: 0.86rem;
+      color: var(--header-strong);
+      font-weight: 600;
+      text-decoration: none;
     }
-    .scope {
-      margin: 22px 0 30px;
-      padding: 16px 18px;
-      border-left: 4px solid var(--accent);
-      background: var(--accent-soft);
-    }
-    .resource {
-      margin: 14px 0;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel);
-    }
-    .resource-head {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 8px;
-    }
-    .confidence {
-      flex: 0 0 auto;
-      border-radius: 999px;
-      padding: 3px 9px;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      border: 1px solid var(--line);
-    }
-    .confidence.high { background: #e7f6ee; color: #145334; }
-    .confidence.medium { background: #fff5d7; color: #614800; }
-    .confidence.low { background: #fbe6e8; color: #7f1d2d; }
-    dl {
+
+    main.wrap {
       display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 8px 14px;
-      margin: 14px 0 0;
+      gap: 22px;
     }
-    dt {
-      color: var(--muted);
-      font-weight: 650;
-    }
-    dd {
-      margin: 0;
+
+    section {
       min-width: 0;
     }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      padding: 14px;
+      border: 1px solid var(--line-soft);
+      border-radius: 5px;
+      background: var(--panel);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--header-strong);
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .breakdowns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+
+    .panel {
+      padding: 14px;
+      border: 1px solid var(--line-soft);
+      border-radius: 5px;
+      background: var(--panel);
+    }
+
+    .count-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .count-list li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line-soft);
+      padding-bottom: 5px;
+      color: var(--muted);
+    }
+
+    .count-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .count-list strong {
+      color: var(--header-strong);
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: minmax(240px, 2fr) repeat(5, minmax(145px, 1fr));
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--accent-soft);
+    }
+
+    .filters.compact {
+      grid-template-columns: minmax(240px, 2fr) repeat(2, minmax(160px, 1fr));
+    }
+
+    label {
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 7px 9px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .result-line {
+      margin: 10px 0 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--panel);
+    }
+
+    table {
+      width: 100%;
+      min-width: 1180px;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .nodes-table {
+      min-width: 980px;
+    }
+
+    th,
+    td {
+      vertical-align: top;
+      border-bottom: 1px solid var(--line-soft);
+      padding: 9px 10px;
+      text-align: left;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--header);
+      color: var(--header-strong);
+      font-size: 0.76rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    tbody tr:hover {
+      background: #f3f8f8;
+    }
+
+    td strong {
+      color: var(--header-strong);
+    }
+
+    .name-cell {
+      min-width: 230px;
+    }
+
+    .wide-cell {
+      min-width: 250px;
+    }
+
+    .tiny-cell {
+      width: 1%;
+      white-space: nowrap;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f8fbfb;
+      color: var(--text);
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+
+    .chip.high,
+    .chip.confirmed,
+    .chip.confirmed-resources {
+      background: var(--high);
+      border-color: #b8dec9;
+      color: #1e5937;
+    }
+
+    .chip.medium,
+    .chip.reviewed,
+    .chip.reviewed-lead {
+      background: var(--medium);
+      border-color: #e6d08b;
+      color: #69510d;
+    }
+
+    .chip.low {
+      background: var(--low);
+      border-color: #e0b9bd;
+      color: #743339;
+    }
+
+    .muted,
     .empty {
       color: var(--muted);
-      font-style: italic;
     }
-    .tag-highlight {
-      color: var(--clarin);
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    details {
+      border: 1px solid var(--line-soft);
+      border-radius: 5px;
+      background: var(--panel);
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 12px 14px;
+      color: var(--header-strong);
       font-weight: 700;
     }
-    .tag-huminfra {
-      color: var(--huminfra);
-      font-weight: 700;
+
+    .details-body {
+      padding: 0 14px 14px;
     }
-    footer {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 20px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
+
+    @media (max-width: 920px) {
+      .filters,
+      .filters.compact {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    @media (max-width: 720px) {
-      .resource-head { display: block; }
-      .confidence { display: inline-block; margin-top: 8px; }
-      dl { grid-template-columns: 1fr; }
-      dt { margin-top: 8px; }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 18px 12px;
+      }
+
+      .filters,
+      .filters.compact {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        font-size: 0.82rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>First-Pass Survey of Swedish Multimodal Language Resources</h1>
-    <p>Resources that are in Swedish, include Swedish, or are developed/hosted in Sweden, with emphasis on primary datasets and corpus records.</p>
-    <div class="summary">
-      <span>7 resources</span>
-      <span>4 high confidence</span>
-      <span>Generated from multimodal_swedish_resources.json</span>
+    <div class="wrap">
+      <p class="eyebrow">Swedish multimodal language resources</p>
+      <h1>First-pass survey with Språkbanken node coverage</h1>
+      <p class="lead">A searchable, table-first inventory of public or publicly described Swedish and Sweden-hosted multimodal language resources. The node layer keeps reviewed Språkbanken/SWE-CLARIN institutions visible even when no packaged public dataset was confirmed.</p>
+      <div class="notice">This page is generated with AI assistance. The data is a discovery pass, not a completeness claim. Several nodes expose infrastructure, archive interfaces, or internal collections that may not resolve to shareable public datasets.</div>
+      <div class="actions">
+        <a class="button" href="multimodal_swedish_resources.json">Download resource JSON</a>
+        <a class="button" href="node_coverage.json">Download node coverage JSON</a>
+        <a class="button" href="sources.md">Source notes</a>
+        <a class="button" href="node_reassessment.md">Node reassessment</a>
+      </div>
     </div>
   </header>
-  <main>
-    <section class="scope">
-      <h2>Scope and Caveats</h2>
-      <p>This is a first-pass survey, not an exhaustive inventory. It prioritizes primary corpus pages, repository records, data cards, and CLARIN-style records. Some Swedish or Sweden-hosted resources may be missing when public metadata was not indexed, had moved, or required interactive login.</p>
-      <p>Unknown licence, size, annotation, and access details are left blank or marked as not found rather than inferred. Low-confidence entries should be treated as leads for follow-up verification.</p>
+
+  <main class="wrap">
+    <section class="stats" aria-label="Summary statistics">
+      <div class="stat"><strong>14</strong><span>resource records</span></div>
+      <div class="stat"><strong>11</strong><span>Språkbanken nodes reviewed</span></div>
+      <div class="stat"><strong>5</strong><span>nodes with confirmed resources</span></div>
+      <div class="stat"><strong>10</strong><span>high-confidence records</span></div>
+      <div class="stat"><strong>12</strong><span>records tagged swe</span></div>
+      <div class="stat"><strong>6</strong><span>records with download access</span></div>
     </section>
-    
-        <section>
-          <h2>Speech, Video, Sign, and Gesture</h2>
-          
-        <article class="resource">
-          <div class="resource-head">
-            <h3><a href="http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view">Video-linked Thai/Swedish child data corpus</a></h3>
-            <span class="confidence high">high confidence</span>
-          </div>
-          <p>Longitudinal recordings of child-caregiver interaction in everyday contexts. The CLARIN family record describes 60 transcripts from six children in Sweden and Thailand, with videos linked to transcripts on an utterance-by-utterance basis.</p>
-          <dl>
-            <dt>Modalities</dt><dd><span class="chip">video</span> <span class="chip">audio</span> <span class="chip">transcripts</span> <span class="chip">linguistic annotation</span></dd>
-            <dt>Language</dt><dd><span class="chip">swe</span> <span class="chip">tha</span></dd>
-            <dt>Licence</dt><dd>not found in first pass</dd>
-            <dt>Size</dt><dd><span class="chip">60 transcripts</span></dd>
-            <dt>Annotation</dt><dd><span class="chip">video-transcription alignment</span> <span class="chip">word segmentation</span> <span class="chip">phonetic transcription</span></dd>
-            <dt>Infrastructure</dt><dd><span class="tag-highlight">CLARIN; Lund University Humanities Lab</span></dd>
-            <dt>Access</dt><dd><span>Concordancer: <a href="http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view">http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view</a></span></dd>
-            <dt>Institution</dt><dd>Sweden; Thailand; Lund University Humanities Lab</dd>
-            <dt>Evidence</dt><dd><a href="https://github.com/clarin-eric/clarin-resource-families/blob/main/corpora/multimodal-corpora/video-linked-thai-swe.json">source 1</a> <a href="http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view">source 2</a></dd>
-            <dt>Notes</dt><dd>Included because Swedish is one of the corpus languages and the resource is already represented in the CLARIN multimodal corpus family.</dd>
-          </dl>
-        </article>
 
-        <article class="resource">
-          <div class="resource-head">
-            <h3><a href="https://teckensprakskorpus.su.se/">Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)</a></h3>
-            <span class="confidence high">high confidence</span>
-          </div>
-          <p>Web-based corpus tool for searching Swedish Sign Language corpus material. The information page states that video recordings and annotations were produced in the Swedish Sign Language Corpus project and can be downloaded for research and teaching; annotations are intended for use with ELAN.</p>
-          <dl>
-            <dt>Modalities</dt><dd><span class="chip">video</span> <span class="chip">sign language annotation</span> <span class="chip">gloss/text metadata</span></dd>
-            <dt>Language</dt><dd><span class="chip">swl</span> <span class="chip">swe</span></dd>
-            <dt>Licence</dt><dd>not found in first pass</dd>
-            <dt>Size</dt><dd><span class="empty">not found in first pass</span></dd>
-            <dt>Annotation</dt><dd><span class="chip">ELAN annotation</span> <span class="chip">sign glosses</span> <span class="chip">handform</span> <span class="chip">articulator</span> <span class="chip">modification</span> <span class="chip">comment and tier-based search metadata</span></dd>
-            <dt>Infrastructure</dt><dd><span class="">Stockholm University; Department of Linguistics; STS-korpus</span></dd>
-            <dt>Access</dt><dd><span>Concordancer: <a href="https://teckensprakskorpus.su.se/">https://teckensprakskorpus.su.se/</a></span><br><span>Download: <a href="https://teckensprakskorpus.su.se/information">https://teckensprakskorpus.su.se/information</a></span></dd>
-            <dt>Institution</dt><dd>Sweden; Stockholm University</dd>
-            <dt>Evidence</dt><dd><a href="https://teckensprakskorpus.su.se/">source 1</a> <a href="https://teckensprakskorpus.su.se/information">source 2</a></dd>
-            <dt>Notes</dt><dd>The site is in Swedish. Licence details were not stated in the inspected public page; access appears to require registration for some downloads.</dd>
-          </dl>
-        </article>
-        </section>
+    <section class="breakdowns" aria-label="Breakdowns">
+      <div class="panel">
+        <h2>By Resource Group</h2>
+        <ul class="count-list"><li><span>Audio Corpora</span><strong>4</strong></li><li><span>Archive Audio and Text Corpora</span><strong>3</strong></li><li><span>Sensor and Eye-Tracking Corpora</span><strong>2</strong></li><li><span>Video-Audio Corpora</span><strong>2</strong></li><li><span>Spoken Dialogue Corpora</span><strong>1</strong></li><li><span>Telephone Speech Corpora</span><strong>1</strong></li><li><span>Writing and Interaction Corpora</span><strong>1</strong></li></ul>
+      </div>
+      <div class="panel">
+        <h2>By Confidence</h2>
+        <ul class="count-list"><li><span>high</span><strong>10</strong></li><li><span>medium</span><strong>3</strong></li><li><span>low</span><strong>1</strong></li></ul>
+      </div>
+      <div class="panel">
+        <h2>By Language Code</h2>
+        <ul class="count-list"><li><span>swe</span><strong>12</strong></li><li><span>eng</span><strong>1</strong></li><li><span>swl</span><strong>1</strong></li><li><span>tha</span><strong>1</strong></li></ul>
+      </div>
+      <div class="panel">
+        <h2>By Node Status</h2>
+        <ul class="count-list"><li><span>confirmed resources</span><strong>5</strong></li><li><span>reviewed</span><strong>3</strong></li><li><span>reviewed lead</span><strong>3</strong></li></ul>
+      </div>
+    </section>
 
-        <section>
-          <h2>Text and Audio</h2>
-          
-        <article class="resource">
-          <div class="resource-head">
-            <h3><a href="https://huggingface.co/datasets/KBLab/rixvox-v2">RixVox-v2</a></h3>
-            <span class="confidence high">high confidence</span>
-          </div>
-          <p>Swedish parliamentary speech dataset from the National Library of Sweden / KBLab. The Hugging Face record describes audio and text data built by matching and force-aligning parliamentary protocols to media recordings of debates.</p>
-          <dl>
-            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">text</span> <span class="chip">speaker metadata</span> <span class="chip">alignment metadata</span></dd>
-            <dt>Language</dt><dd><span class="chip">swe</span></dd>
-            <dt>Licence</dt><dd>ODC-BY</dd>
-            <dt>Size</dt><dd><span class="chip">3.56M rows</span> <span class="chip">nearly 23000 hours of speech</span></dd>
-            <dt>Annotation</dt><dd><span class="chip">forced alignment</span> <span class="chip">speaker metadata</span> <span class="chip">party metadata</span> <span class="chip">role metadata</span> <span class="chip">date metadata</span> <span class="chip">speech/protocol identifiers</span> <span class="chip">automatic transcription fields</span></dd>
-            <dt>Infrastructure</dt><dd><span class="">Hugging Face; National Library of Sweden / KBLab</span></dd>
-            <dt>Access</dt><dd><span>Download: <a href="https://huggingface.co/datasets/KBLab/rixvox-v2">https://huggingface.co/datasets/KBLab/rixvox-v2</a></span></dd>
-            <dt>Institution</dt><dd>Sweden; National Library of Sweden / KBLab</dd>
-            <dt>Evidence</dt><dd><a href="https://huggingface.co/datasets/KBLab/rixvox-v2">source 1</a> <a href="https://huggingface.co/datasets/KBLab/rixvox">source 2</a></dd>
-            <dt>Notes</dt><dd>Merged with the earlier RixVox record as the same underlying parliamentary-speech resource family; v2 is listed as the current, larger dataset.</dd>
-          </dl>
-        </article>
+    <section aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Resource Table</h2>
+      <div class="filters" aria-label="Resource filters">
+        <label>Search
+          <input id="resourceSearch" type="search" placeholder="Name, institution, modality, note, source">
+        </label>
+        <label>Group
+          <select id="groupFilter">
+            <option value="">All groups</option>
+            <option value="Archive Audio and Text Corpora">Archive Audio and Text Corpora</option><option value="Audio Corpora">Audio Corpora</option><option value="Sensor and Eye-Tracking Corpora">Sensor and Eye-Tracking Corpora</option><option value="Spoken Dialogue Corpora">Spoken Dialogue Corpora</option><option value="Telephone Speech Corpora">Telephone Speech Corpora</option><option value="Video-Audio Corpora">Video-Audio Corpora</option><option value="Writing and Interaction Corpora">Writing and Interaction Corpora</option>
+          </select>
+        </label>
+        <label>Node
+          <select id="nodeFilter">
+            <option value="">All nodes</option>
+            <option value="Datorlingvistikgruppen, Uppsala University">Datorlingvistikgruppen, Uppsala University</option><option value="GRIDH, University of Gothenburg">GRIDH, University of Gothenburg</option><option value="Humanistlaboratoriet, Lund University">Humanistlaboratoriet, Lund University</option><option value="Humlab, Umeå University">Humlab, Umeå University</option><option value="Institutionen för datavetenskap, Linköping University">Institutionen för datavetenskap, Linköping University</option><option value="Institutionen för lingvistik, Stockholm University">Institutionen för lingvistik, Stockholm University</option><option value="Kungliga biblioteket / KBLab">Kungliga biblioteket / KBLab</option><option value="Riksarkivet">Riksarkivet</option><option value="Språkbanken Sam, Isof">Språkbanken Sam, Isof</option><option value="Språkbanken Tal, KTH">Språkbanken Tal, KTH</option><option value="Språkbanken Text, University of Gothenburg">Språkbanken Text, University of Gothenburg</option>
+          </select>
+        </label>
+        <label>Language
+          <select id="languageFilter">
+            <option value="">All languages</option>
+            <option value="eng">eng</option><option value="swe">swe</option><option value="swl">swl</option><option value="tha">tha</option>
+          </select>
+        </label>
+        <label>Confidence
+          <select id="confidenceFilter">
+            <option value="">All confidence</option>
+            <option value="high">high</option><option value="low">low</option><option value="medium">medium</option>
+          </select>
+        </label>
+        <label>Access
+          <select id="accessFilter">
+            <option value="">All access</option>
+            <option value="Catalogue">Catalogue</option><option value="Concordancer">Concordancer</option><option value="Download">Download</option><option value="Folke">Folke</option><option value="Information">Information</option><option value="Map/browser">Map/browser</option><option value="On-site/order">On-site/order</option><option value="README">README</option><option value="Service">Service</option><option value="Swedish subset">Swedish subset</option>
+          </select>
+        </label>
+      </div>
+      <p class="result-line" id="resourceCount"></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Group</th>
+              <th>Modalities</th>
+              <th>Languages</th>
+              <th>Infrastructure / Institution</th>
+              <th>Access</th>
+              <th>Licence / Size</th>
+              <th>Annotation</th>
+              <th>Confidence</th>
+              <th>Sources / Notes</th>
+            </tr>
+          </thead>
+          <tbody id="resourceRows"></tbody>
+        </table>
+      </div>
+    </section>
 
-        <article class="resource">
-          <div class="resource-head">
-            <h3><a href="http://swedia.ling.gu.se/">SweDia 2000</a></h3>
-            <span class="confidence medium">medium confidence</span>
-          </div>
-          <p>Website for listening to recordings of more than 100 Swedish dialects recorded across Sweden and Swedish-speaking parts of Finland. It is included as a Swedish-hosted speech resource with audio linked to dialect/location context.</p>
-          <dl>
-            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">geographic/dialect metadata</span> <span class="chip">web text</span></dd>
-            <dt>Language</dt><dd><span class="chip">swe</span></dd>
-            <dt>Licence</dt><dd>not found in first pass</dd>
-            <dt>Size</dt><dd><span class="chip">more than 100 dialects</span></dd>
-            <dt>Annotation</dt><dd><span class="empty">not found in first pass</span></dd>
-            <dt>Infrastructure</dt><dd><span class="">University of Gothenburg and Swedish dialect research context</span></dd>
-            <dt>Access</dt><dd><span>Concordancer: <a href="http://swedia.ling.gu.se/">http://swedia.ling.gu.se/</a></span></dd>
-            <dt>Institution</dt><dd>Sweden; University of Gothenburg</dd>
-            <dt>Evidence</dt><dd><a href="http://swedia.ling.gu.se/">source 1</a></dd>
-            <dt>Notes</dt><dd>The landing page clearly exposes audio listening and dialect metadata, but the first-pass inspection did not verify downloadable corpus files or systematic transcription availability.</dd>
-          </dl>
-        </article>
+    <section aria-labelledby="nodes-heading">
+      <h2 id="nodes-heading">Språkbanken Node Layer</h2>
+      <p>The node layer separates infrastructure leads from confirmed datasets. It includes Gothenburg, KTH, Isof, Uppsala, GRIDH, Lund, Umeå, Stockholm, KB/KBLab, Linköping and Riksarkivet.</p>
+      <div class="filters compact" aria-label="Node filters">
+        <label>Search Nodes
+          <input id="nodeSearch" type="search" placeholder="Node, role, resource, note">
+        </label>
+        <label>Status
+          <select id="nodeStatusFilter">
+            <option value="">All statuses</option>
+            <option value="confirmed resources">confirmed resources</option><option value="reviewed">reviewed</option><option value="reviewed lead">reviewed lead</option>
+          </select>
+        </label>
+        <label>Treatment
+          <select id="nodeTreatmentFilter">
+            <option value="">All treatments</option>
+            <option value="Mentioned as a node; no concrete public dataset added.">Mentioned as a node; no concrete public dataset added.</option><option value="Mentioned as a node; no confirmed public Swedish multimodal dataset found in this pass.">Mentioned as a node; no confirmed public Swedish multimodal dataset found in this pass.</option><option value="Mentioned as a node; no confirmed Swedish language-resource dataset added.">Mentioned as a node; no confirmed Swedish language-resource dataset added.</option><option value="Mentioned as a node; potential image+text/OCR archive source but no packaged dataset added.">Mentioned as a node; potential image+text/OCR archive source but no packaged dataset added.</option><option value="Primary source for KTH speech resources.">Primary source for KTH speech resources.</option><option value="Primary source for parliamentary speech via KBLab.">Primary source for parliamentary speech via KBLab.</option><option value="Primary source for Swedish archive audio/text/map resources.">Primary source for Swedish archive audio/text/map resources.</option><option value="Primary source for Swedish or Swedish-relevant multimodal/sensor resources.">Primary source for Swedish or Swedish-relevant multimodal/sensor resources.</option><option value="Primary source for Swedish Sign Language corpus evidence.">Primary source for Swedish Sign Language corpus evidence.</option><option value="Relevant infrastructure; primarily text resources, not a main source of multimodal entries in this pass.">Relevant infrastructure; primarily text resources, not a main source of multimodal entries in this pass.</option>
+          </select>
+        </label>
+      </div>
+      <p class="result-line" id="nodeCount"></p>
+      <div class="table-wrap">
+        <table class="nodes-table">
+          <thead>
+            <tr>
+              <th>Node</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Treatment</th>
+              <th>Related Resources</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="nodeRows"></tbody>
+        </table>
+      </div>
+    </section>
 
-        <article class="resource">
-          <div class="resource-head">
-            <h3><a href="https://huggingface.co/datasets/google/fleurs">FLEURS Swedish (sv_se)</a></h3>
-            <span class="confidence high">high confidence</span>
-          </div>
-          <p>Swedish subset of Google's FLEURS multilingual speech dataset. The Hugging Face dataset card lists audio and text modalities, Swedish (sv_se) as one subset, and fields for audio, transcription and raw transcription.</p>
-          <dl>
-            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">text</span></dd>
-            <dt>Language</dt><dd><span class="chip">swe</span></dd>
-            <dt>Licence</dt><dd>CC-BY-4.0</dd>
-            <dt>Size</dt><dd><span class="chip">3.47k rows for sv_se</span></dd>
-            <dt>Annotation</dt><dd><span class="chip">transcription</span> <span class="chip">raw transcription</span> <span class="chip">gender metadata</span> <span class="chip">language metadata</span></dd>
-            <dt>Infrastructure</dt><dd><span class="">Hugging Face; Google</span></dd>
-            <dt>Access</dt><dd><span>Download: <a href="https://huggingface.co/datasets/google/fleurs">https://huggingface.co/datasets/google/fleurs</a></span></dd>
-            <dt>Institution</dt><dd>International; includes Swedish</dd>
-            <dt>Evidence</dt><dd><a href="https://huggingface.co/datasets/google/fleurs">source 1</a></dd>
-            <dt>Notes</dt><dd>Included because Swedish is an explicit language subset; not Sweden-hosted.</dd>
-          </dl>
-        </article>
-
-        <article class="resource">
-          <div class="resource-head">
-            <h3><a href="https://commonvoice.mozilla.org/en/datasets">Mozilla Common Voice Swedish</a></h3>
-            <span class="confidence medium">medium confidence</span>
-          </div>
-          <p>Crowdsourced speech corpus pairing voice recordings with prompt text and validation metadata. The older Hugging Face record for Common Voice 17.0 states that Common Voice datasets moved to Mozilla Data Collective in October 2025.</p>
-          <dl>
-            <dt>Modalities</dt><dd><span class="chip">audio</span> <span class="chip">text</span> <span class="chip">speaker metadata</span></dd>
-            <dt>Language</dt><dd><span class="chip">swe</span></dd>
-            <dt>Licence</dt><dd>not found in first pass</dd>
-            <dt>Size</dt><dd><span class="empty">not found in first pass</span></dd>
-            <dt>Annotation</dt><dd><span class="chip">sentence prompts</span> <span class="chip">speaker metadata where volunteered</span> <span class="chip">validation metadata</span></dd>
-            <dt>Infrastructure</dt><dd><span class="">Mozilla Common Voice; Mozilla Data Collective</span></dd>
-            <dt>Access</dt><dd><span>Download: <a href="https://commonvoice.mozilla.org/en/datasets">https://commonvoice.mozilla.org/en/datasets</a></span><br><span>Catalogue: <a href="https://mozilladatacollective.com/">https://mozilladatacollective.com/</a></span></dd>
-            <dt>Institution</dt><dd>International; includes Swedish</dd>
-            <dt>Evidence</dt><dd><a href="https://commonvoice.mozilla.org/en/datasets">source 1</a> <a href="https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0">source 2</a> <a href="https://mozilladatacollective.com/">source 3</a></dd>
-            <dt>Notes</dt><dd>Included as a well-known Swedish speech/text resource, but current download and licence details should be rechecked in Mozilla Data Collective because the old Hugging Face dataset record is now empty.</dd>
-          </dl>
-        </article>
-        </section>
-
-        <section>
-          <h2>Interaction Logs, Social Media, and Language</h2>
-          
-        <article class="resource">
-          <div class="resource-head">
-            <h3><a href="https://mumin-dataset.github.io/">MuMiN multilingual multimodal misinformation dataset</a></h3>
-            <span class="confidence low">low confidence</span>
-          </div>
-          <p>Large-scale multilingual multimodal fact-checked misinformation dataset structured as a heterogeneous graph. The project page describes tweets, users, Twitter threads and fact-checked claims in 41 languages, with source code for compiling/exporting the dataset.</p>
-          <dl>
-            <dt>Modalities</dt><dd><span class="chip">social media text</span> <span class="chip">images</span> <span class="chip">articles</span> <span class="chip">graph metadata</span> <span class="chip">fact-check labels</span></dd>
-            <dt>Language</dt><dd><span class="empty">not found in first pass</span></dd>
-            <dt>Licence</dt><dd>not found in first pass</dd>
-            <dt>Size</dt><dd><span class="chip">21,565,018 tweets</span> <span class="chip">1,986,354 users</span> <span class="chip">26,048 Twitter threads</span> <span class="chip">12,914 fact-checked claims</span> <span class="chip">41 languages</span></dd>
-            <dt>Annotation</dt><dd><span class="chip">claim verdict labels</span> <span class="chip">tweet classification labels</span> <span class="chip">graph links</span> <span class="chip">fact-checking metadata</span></dd>
-            <dt>Infrastructure</dt><dd><span class="">GitHub; Python package</span></dd>
-            <dt>Access</dt><dd><span>Download: <a href="https://github.com/mumin-dataset/MuMiN-build">https://github.com/mumin-dataset/MuMiN-build</a></span></dd>
-            <dt>Institution</dt><dd>Denmark/UK authorship; multilingual</dd>
-            <dt>Evidence</dt><dd><a href="https://mumin-dataset.github.io/">source 1</a> <a href="https://github.com/mumin-dataset/MuMiN-build">source 2</a></dd>
-            <dt>Notes</dt><dd>Potential Swedish-language inclusion is plausible under the 41-language coverage but was not verified in the first-pass source inspection. Retained as a low-confidence lead because it is genuinely multimodal and multilingual.</dd>
-          </dl>
-        </article>
-        </section>
+    <details>
+      <summary>Scope and Caveats</summary>
+      <div class="details-body">
+        <p>The survey favors public evidence: dataset pages, CLARIN/SWE-CLARIN node pages, repository records, archive interfaces and source notes. Hosted-in-Sweden resources are retained when they are relevant infrastructure leads, but non-Swedish language-documentation collections are not expanded into the main resource list unless Swedish content is verified.</p>
+        <p>Some institutions likely hold more internal or restricted multimodal data than can be represented here. Sensitive speech, archival and personal-data collections may be described by infrastructure pages without a downloadable corpus record.</p>
+      </div>
+    </details>
   </main>
-  <footer>
-    Highlighting uses available infrastructure metadata: CLARIN/SWE-CLARIN/Sprakbanken connections appear in green; no public HUMINFRA-specific dataset record was verified in this pass.
-  </footer>
+
+  <script id="resource-data" type="application/json">[{"Name":"Video-linked Thai/Swedish child data corpus","URL":"http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view","Family":"Manually annotated corpora","Description":"Longitudinal recordings of child-caregiver interaction in everyday contexts. The CLARIN family record describes 60 transcripts from six children in Sweden and Thailand, with videos linked to transcripts on an utterance-by-utterance basis.","Language":["swe","tha"],"Licence":"","Size":["60 transcripts"],"Annotation":["video-transcription alignment","word segmentation","phonetic transcription"],"Infrastructure":"CLARIN; Lund University Humanities Lab","Group":"Video-Audio Corpora","Access":{"Concordancer":"http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view"},"Publication":"https://www.zotero.org/groups/562080/clarin/collections/2Y9ITDX8/items/XJIL9UWD/","Modalities":["video","audio","transcripts","linguistic annotation"],"CountryOrInstitution":"Sweden; Thailand; Lund University Humanities Lab","EvidenceURLs":["https://github.com/clarin-eric/clarin-resource-families/blob/main/corpora/multimodal-corpora/video-linked-thai-swe.json","http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view"],"Confidence":"high","Notes":"Included because Swedish is one of the corpus languages and the resource is already represented in the CLARIN multimodal corpus family."},{"Name":"Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)","URL":"https://teckensprakskorpus.su.se/","Family":"Manually annotated corpora","Description":"Web-based corpus tool for searching Swedish Sign Language corpus material. The information page states that video recordings and annotations were produced in the Swedish Sign Language Corpus project and can be downloaded for research and teaching; annotations are intended for use with ELAN.","Language":["swl","swe"],"Licence":"","Size":[],"Annotation":["ELAN annotation","sign glosses","handform","articulator","modification","comment and tier-based search metadata"],"Infrastructure":"Stockholm University; Department of Linguistics; STS-korpus","Group":"Video-Audio Corpora","Access":{"Concordancer":"https://teckensprakskorpus.su.se/","Download":"https://teckensprakskorpus.su.se/information"},"Publication":"https://su.se/forskning/forskningsprojekt/svensk-teckenspr%C3%A5kskorpus","Modalities":["video","sign language annotation","gloss/text metadata"],"CountryOrInstitution":"Sweden; Stockholm University","EvidenceURLs":["https://teckensprakskorpus.su.se/","https://teckensprakskorpus.su.se/information"],"Confidence":"high","Notes":"The site is in Swedish. Licence details were not stated in the inspected public page; access appears to require registration for some downloads."},{"Name":"RixVox-v2","URL":"https://huggingface.co/datasets/KBLab/rixvox-v2","Family":"Automatically annotated corpora","Description":"Swedish parliamentary speech dataset from the National Library of Sweden / KBLab. The Hugging Face record describes audio and text data built by matching and force-aligning parliamentary protocols to media recordings of debates.","Language":["swe"],"Licence":"ODC-BY","Size":["3.56M rows","nearly 23000 hours of speech"],"Annotation":["forced alignment","speaker metadata","party metadata","role metadata","date metadata","speech/protocol identifiers","automatic transcription fields"],"Infrastructure":"Hugging Face; National Library of Sweden / KBLab","Group":"Audio Corpora","Access":{"Download":"https://huggingface.co/datasets/KBLab/rixvox-v2"},"Publication":"","Modalities":["audio","text","speaker metadata","alignment metadata"],"CountryOrInstitution":"Sweden; National Library of Sweden / KBLab","EvidenceURLs":["https://huggingface.co/datasets/KBLab/rixvox-v2","https://huggingface.co/datasets/KBLab/rixvox"],"Confidence":"high","Notes":"Merged with the earlier RixVox record as the same underlying parliamentary-speech resource family; v2 is listed as the current, larger dataset."},{"Name":"SweDia 2000","URL":"http://swedia.ling.gu.se/","Family":"Spoken corpora","Description":"Website for listening to recordings of more than 100 Swedish dialects recorded across Sweden and Swedish-speaking parts of Finland. It is included as a Swedish-hosted speech resource with audio linked to dialect/location context.","Language":["swe"],"Licence":"","Size":["more than 100 dialects"],"Annotation":[],"Infrastructure":"University of Gothenburg and Swedish dialect research context","Group":"Audio Corpora","Access":{"Concordancer":"http://swedia.ling.gu.se/"},"Publication":"","Modalities":["audio","geographic/dialect metadata","web text"],"CountryOrInstitution":"Sweden; University of Gothenburg","EvidenceURLs":["http://swedia.ling.gu.se/"],"Confidence":"medium","Notes":"The landing page clearly exposes audio listening and dialect metadata, but the first-pass inspection did not verify downloadable corpus files or systematic transcription availability."},{"Name":"FLEURS Swedish (sv_se)","URL":"https://huggingface.co/datasets/google/fleurs","Family":"Automatically annotated corpora","Description":"Swedish subset of Google's FLEURS multilingual speech dataset. The Hugging Face dataset card lists audio and text modalities, Swedish (sv_se) as one subset, and fields for audio, transcription and raw transcription.","Language":["swe"],"Licence":"CC-BY-4.0","Size":["3.47k rows for sv_se"],"Annotation":["transcription","raw transcription","gender metadata","language metadata"],"Infrastructure":"Hugging Face; Google","Group":"Audio Corpora","Access":{"Download":"https://huggingface.co/datasets/google/fleurs"},"Publication":"https://arxiv.org/abs/2205.12446","Modalities":["audio","text"],"CountryOrInstitution":"International; includes Swedish","EvidenceURLs":["https://huggingface.co/datasets/google/fleurs"],"Confidence":"high","Notes":"Included because Swedish is an explicit language subset; not Sweden-hosted."},{"Name":"Mozilla Common Voice Swedish","URL":"https://commonvoice.mozilla.org/en/datasets","Family":"Crowdsourced corpora","Description":"Crowdsourced speech corpus pairing voice recordings with prompt text and validation metadata. The older Hugging Face record for Common Voice 17.0 states that Common Voice datasets moved to Mozilla Data Collective in October 2025.","Language":["swe"],"Licence":"","Size":[],"Annotation":["sentence prompts","speaker metadata where volunteered","validation metadata"],"Infrastructure":"Mozilla Common Voice; Mozilla Data Collective","Group":"Audio Corpora","Access":{"Download":"https://commonvoice.mozilla.org/en/datasets","Catalogue":"https://mozilladatacollective.com/"},"Publication":"","Modalities":["audio","text","speaker metadata"],"CountryOrInstitution":"International; includes Swedish","EvidenceURLs":["https://commonvoice.mozilla.org/en/datasets","https://huggingface.co/datasets/mozilla-foundation/common_voice_17_0","https://mozilladatacollective.com/"],"Confidence":"medium","Notes":"Included as a well-known Swedish speech/text resource, but current download and licence details should be rechecked in Mozilla Data Collective because the old Hugging Face dataset record is now empty."},{"Name":"Eye-Tracked Frog Stories","URL":"https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_00E6_7","Family":"Sensor-based corpora","Description":"Lund Corpora collection organized into English and Swedish subcollections, with a Swedish branch further organized by images and persons. Included as a Sweden-hosted multimodal/sensor collection linked to eye-tracked narrative material.","Language":["eng","swe"],"Licence":"","Size":[],"Annotation":["repository metadata","eye-tracking data"],"Infrastructure":"CLARIN; Språkbanken CLARIN; Lund University Humanities Lab; CLARIN-MULTISENS","Group":"Sensor and Eye-Tracking Corpora","Access":{"Catalogue":"https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_00E6_7","Swedish subset":"https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_019A_C"},"Publication":"","Modalities":["text/narrative elicitation","images","eye-tracking data","repository metadata"],"CountryOrInstitution":"Sweden; Lund University Humanities Lab","EvidenceURLs":["https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_00E6_7","https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_019A_C"],"Confidence":"medium","Notes":"The public collection hierarchy confirms English and Swedish branches; detailed licence, size, and file-level annotation should be checked in the archive."},{"Name":"Tactile Reading","URL":"https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0462_E","Family":"Sensor-based corpora","Description":"Participants read a short text from Pippi Longstocking and feel a tactile image of a face. The LU Humanities Lab Archive description says the material was recorded by an automated finger-tracker; item descriptions mention video generated by finger-tracking, spoken retelling, diagrams and tracked coordinates.","Language":[],"Licence":"","Size":[],"Annotation":["finger-tracking coordinates","IR motion tracking","video visualization","repository metadata"],"Infrastructure":"CLARIN; Språkbanken CLARIN; Lund University Humanities Lab; CLARIN-MULTISENS","Group":"Sensor and Eye-Tracking Corpora","Access":{"Catalogue":"https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0462_E"},"Publication":"","Modalities":["text reading","speech","tactile image","finger-tracking","IR motion tracking","video","diagrams"],"CountryOrInstitution":"Sweden; Lund University Humanities Lab","EvidenceURLs":["https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0462_E","https://sprakbanken-clarin.lingfil.uu.se/medlemmar/lu.html"],"Confidence":"high","Notes":"Language is not explicitly encoded in the inspected collection metadata; the Pippi Longstocking text context suggests Swedish relevance but this is not asserted in the Language field."},{"Name":"Strömqvist-Richthoff","URL":"https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_C046_E","Family":"Writing and language acquisition corpora","Description":"Strömqvist-Richthoff collection listed under Lund Corpora. The collection name points to Swedish writing/language acquisition research, but the public listing inspected in this pass did not expose a description.","Language":[],"Licence":"","Size":[],"Annotation":["repository metadata"],"Infrastructure":"CLARIN; Lund University Humanities Lab","Group":"Writing and Interaction Corpora","Access":{"Catalogue":"https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_C046_E"},"Publication":"","Modalities":["writing/language data","repository metadata"],"CountryOrInstitution":"Sweden-hosted; Lund University Humanities Lab","EvidenceURLs":["https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0001_D?page=1&display=list"],"Confidence":"low","Notes":"Added as a lead from the Lund Corpora inventory; needs file-level verification before strong claims."},{"Name":"Folke","URL":"https://www.isof.se/folkminnen/folke","Family":"Archive corpora","Description":"Digital archive service from the Institute for Language and Folklore (Isof) exposing a selection of older archive material about people's lives, work, everyday life, festivities, experiences and memories from the late 19th century onward. The public page says users can search, read, listen and transcribe material; current material includes folk-memory records, questionnaires and recordings.","Language":["swe"],"Licence":"","Size":[],"Annotation":["user/community transcription","archive metadata","accession metadata","place metadata","collector metadata"],"Infrastructure":"Isof; Språkbanken Sam; Språkbanken CLARIN","Group":"Archive Audio and Text Corpora","Access":{"Catalogue":"https://www.isof.se/folkminnen/folke","Service":"https://sok.folke.isof.se/"},"Publication":"","Modalities":["manuscript/text records","audio recordings","transcriptions","map/place metadata","archive metadata"],"CountryOrInstitution":"Sweden; Institute for Language and Folklore (Isof)","EvidenceURLs":["https://www.isof.se/folkminnen/folke","https://sok.folke.isof.se/","https://sprakbanken-clarin.lingfil.uu.se/medlemmar/isof.html"],"Confidence":"high","Notes":"Added after the user pointed out the missing Isof/Folke resource. It is Swedish-content archival material and clearly multimodal through text/manuscripts, recordings, listening and transcription workflows. Licence/download details were not found on the public overview page."},{"Name":"Isof dialect and folklore recordings / Intervjuer och inspelningar","URL":"https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar","Family":"Spoken corpora","Description":"Isof's collections of spoken-language recordings, mainly interviews documenting dialects and folklore in Sweden. The public page reports roughly 25,000 recorded hours, including around 15,500 gramophone discs, more than 18,000 reel tapes and nearly 9,000 cassettes, with some transcripts available for ordering.","Language":["swe"],"Licence":"","Size":["approximately 25,000 recorded hours","circa 15,500 gramophone discs","more than 18,000 reel tapes","nearly 9,000 cassettes"],"Annotation":["archive metadata","some transcripts/utskrifter","geographic metadata","speaker/interview context metadata"],"Infrastructure":"Isof; Språkbanken Sam; Språkbanken CLARIN","Group":"Archive Audio and Text Corpora","Access":{"Information":"https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar","Folke":"https://www.isof.se/folkminnen/folke","On-site/order":"https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar"},"Publication":"","Modalities":["audio","interviews","speech","transcripts where available","archive metadata"],"CountryOrInstitution":"Sweden; Institute for Language and Folklore (Isof)","EvidenceURLs":["https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar","https://www.isof.se/folkminnen/folke"],"Confidence":"high","Notes":"This is a collection-level entry because Isof describes the holdings and access routes at collection scale rather than as one downloadable corpus."},{"Name":"Dialektkartan","URL":"https://www.isof.se/dialekter/vara-dialektsamlingar/dialektkartan","Family":"Spoken corpora","Description":"Isof map service for listening to hundreds of shorter audio clips from older Swedish dialect recordings from across Sweden, mainly recordings from 1935-1970. Full-length recordings and written records are routed to Folke.","Language":["swe"],"Licence":"","Size":["hundreds of shorter audio clips"],"Annotation":["geographic metadata","dialect/place metadata","archive metadata"],"Infrastructure":"Isof; Språkbanken Sam; Språkbanken CLARIN","Group":"Archive Audio and Text Corpora","Access":{"Map/browser":"https://dialektkartan.isof.se/","Information":"https://www.isof.se/dialekter/vara-dialektsamlingar/dialektkartan"},"Publication":"","Modalities":["audio","map/geographic interface","dialect metadata","archive metadata"],"CountryOrInstitution":"Sweden; Institute for Language and Folklore (Isof)","EvidenceURLs":["https://www.isof.se/dialekter/vara-dialektsamlingar/dialektkartan","https://dialektkartan.isof.se/"],"Confidence":"high","Notes":"Included as a Swedish dialect audio-plus-map resource; it is a browser/service view rather than a bulk-download corpus."},{"Name":"SpeechDat Swedish (KTH Hugging Face release)","URL":"https://huggingface.co/datasets/KTH/speechdat","Family":"Spoken corpora","Description":"KTH Hugging Face release of the SpeechDat dataset. The dataset repository contains a loader script, metadata JSON, README and a large WAV archive; the README describes loading the dataset with local WAV files in a speechdat/wav directory. This supersedes the earlier ELRA-only catalogue references in this survey for the KTH-accessible SpeechDat release.","Language":["swe"],"Licence":"","Size":["wav.zip; repository storage about 28 GB"],"Annotation":["dataset loader","metadata JSON","prompt/audio pairing"],"Infrastructure":"Hugging Face; KTH; Språkbanken Tal; Språkbanken CLARIN","Group":"Telephone Speech Corpora","Access":{"Download":"https://huggingface.co/datasets/KTH/speechdat","README":"https://huggingface.co/datasets/KTH/speechdat/raw/main/README.md"},"Publication":"","Modalities":["speech audio","text/prompts","metadata","dataset loader"],"CountryOrInstitution":"Sweden; KTH / Språkbanken Tal","EvidenceURLs":["https://huggingface.co/datasets/KTH/speechdat","https://huggingface.co/api/datasets/KTH/speechdat","https://huggingface.co/datasets/KTH/speechdat/raw/main/README.md","https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kth.html"],"Confidence":"high","Notes":"Replaces the separate ELRA catalogue-only SpeechDat entries after confirming the KTH Hugging Face dataset. The old ELRA records remain useful provenance/distribution references but are no longer the primary survey entry."},{"Name":"Waxholm corpus","URL":"https://huggingface.co/datasets/KTH/waxholm","Family":"Spoken dialogue corpora","Description":"Swedish spoken dialogue corpus collected in 1993-1994 at the Department of Speech, Hearing and Music (TMH), KTH. The Hugging Face dataset card describes sampled speech files and label files; labels include orthographic text, phonetic/phonemic labels, word-level labels and alignment information.","Language":["swe"],"Licence":"","Size":[],"Annotation":["orthographic transcription","phonetic labels","phonemic labels","word-level labels","automatic alignment","manual correction","SAMPA/STA phoneme inventory"],"Infrastructure":"Hugging Face; KTH; Språkbanken Tal; Språkbanken CLARIN","Group":"Spoken Dialogue Corpora","Access":{"Download":"https://huggingface.co/datasets/KTH/waxholm","README":"https://huggingface.co/datasets/KTH/waxholm/raw/main/README.md"},"Publication":"@article{bertenstam1995spoken, title={Spoken dialogue data collected in the Waxholm project}, journal={STH-QPSR, KTH}, year={1995}}","Modalities":["speech audio","dialogue","orthographic text","phonetic/phonemic annotation","alignment labels"],"CountryOrInstitution":"Sweden; KTH / Språkbanken Tal","EvidenceURLs":["https://huggingface.co/datasets/KTH/waxholm","https://huggingface.co/api/datasets/KTH/waxholm","https://huggingface.co/datasets/KTH/waxholm/raw/main/README.md","https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kth.html"],"Confidence":"high","Notes":"Added after user pointed out the Hugging Face release. The repository contains .wav, .smp and .mix files and KTH publications describing the corpus."}]</script>
+  <script id="node-data" type="application/json">[{"Node":"Språkbanken Text, University of Gothenburg","URL":"https://sprakbanken.gu.se/","Role":"CLARIN C-centre for Swedish text resources and tools.","Status":"reviewed","SurveyTreatment":"Relevant infrastructure; primarily text resources, not a main source of multimodal entries in this pass.","RelatedResources":[],"Notes":"Important for Swedish text corpora and annotation infrastructure. Multimodal resource discovery should continue through resource records rather than the node overview alone."},{"Node":"Språkbanken Tal, KTH","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kth.html","Role":"Speech analysis and Swedish speech-technology resources.","Status":"confirmed resources","SurveyTreatment":"Primary source for KTH speech resources.","RelatedResources":["SpeechDat Swedish (KTH Hugging Face release)","Waxholm corpus"],"Notes":"Hugging Face records under the KTH organization now provide direct access points for SpeechDat and Waxholm."},{"Node":"Språkbanken Sam, Isof","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/isof.html","Role":"Language and folklore archive resources, dialects, names and folk-memory material.","Status":"confirmed resources","SurveyTreatment":"Primary source for Swedish archive audio/text/map resources.","RelatedResources":["Folke","Isof dialect and folklore recordings / Intervjuer och inspelningar","Dialektkartan"],"Notes":"Folke and Dialektkartan expose public browser interfaces; large underlying collections may have access restrictions."},{"Node":"Datorlingvistikgruppen, Uppsala University","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/uu.html","Role":"Computational linguistics, DiaRes, CLARIN-SMS, historical text and parsing resources.","Status":"reviewed","SurveyTreatment":"Mentioned as a node; no confirmed public Swedish multimodal dataset found in this pass.","RelatedResources":[],"Notes":"Named resources include HistCorp, Swedish Treebank, Decode and Swedish Diachronic Corpus. These are important but appear primarily text/tool oriented from the public node page."},{"Node":"GRIDH, University of Gothenburg","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/gridh.html","Role":"Digital humanities infrastructure, text analysis, data visualization/publication and DH projects.","Status":"reviewed lead","SurveyTreatment":"Mentioned as a node; no confirmed Swedish language-resource dataset added.","RelatedResources":[],"Notes":"Public node page mentions 3D rock-art analysis, image recognition and performing-arts mapping; these are multimodal DH leads but not confirmed Swedish language resources."},{"Node":"Humanistlaboratoriet, Lund University","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/lu.html","Role":"CLARIN-MULTISENS C/K-centre for multimodal and sensor-based data.","Status":"confirmed resources","SurveyTreatment":"Primary source for Swedish or Swedish-relevant multimodal/sensor resources.","RelatedResources":["Video-linked Thai/Swedish child data corpus","Eye-Tracked Frog Stories","Tactile Reading","SweDia 2000"],"Notes":"The Lund archive also hosts many non-Swedish language-documentation collections; those were excluded from the main JSON unless Swedish content was verified."},{"Node":"Humlab, Umeå University","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/umu.html","Role":"Humlab DigiTal speech-processing infrastructure and support for recorded speech workflows.","Status":"reviewed lead","SurveyTreatment":"Mentioned as a node; no concrete public dataset added.","RelatedResources":[],"Notes":"Node page says the initial focus is Sami material and legally sensitive recordings, with public versions of corpora as a goal."},{"Node":"Institutionen för lingvistik, Stockholm University","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/su.html","Role":"Computational linguistics and Swedish Sign Language resources.","Status":"confirmed resources","SurveyTreatment":"Primary source for Swedish Sign Language corpus evidence.","RelatedResources":["Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)"],"Notes":"The node page states STS-korpusen had 18 hours of video and 146,000 annotated sign tokens as of 2019-12-31."},{"Node":"Kungliga biblioteket / KBLab","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kb.html","Role":"National Library of Sweden language resources, cultural heritage data and KBLab datasets.","Status":"confirmed resources","SurveyTreatment":"Primary source for parliamentary speech via KBLab.","RelatedResources":["RixVox-v2"],"Notes":"KBLab Hugging Face datasets include RixVox-v2, a Swedish parliamentary speech resource."},{"Node":"Institutionen för datavetenskap, Linköping University","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/liu.html","Role":"Text-based language resources, translation corpora, treebanks and Swedish/multilingual text processing.","Status":"reviewed","SurveyTreatment":"Mentioned as a node; no confirmed public Swedish multimodal dataset found in this pass.","RelatedResources":[],"Notes":"Named resources include Linköping Translation Corpus, LinES and easy-to-read corpora; public description is text-resource focused."},{"Node":"Riksarkivet","URL":"https://sprakbanken-clarin.lingfil.uu.se/medlemmar/ra.html","Role":"National archive, historical documents, maps, images and DiaRes participation.","Status":"reviewed lead","SurveyTreatment":"Mentioned as a node; potential image+text/OCR archive source but no packaged dataset added.","RelatedResources":[],"Notes":"Public node page points to NAD and Digitala forskarsalen. Further work should check APIs, OCR/transcription datasets and metadata-only records."}]</script>
+  <script>
+    const resources = JSON.parse(document.getElementById("resource-data").textContent);
+    const nodes = JSON.parse(document.getElementById("node-data").textContent);
+
+    const byId = (id) => document.getElementById(id);
+    const text = (value) => String(value || "").toLowerCase();
+    const escapeHtml = (value) => String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;");
+
+    const chipClass = (value) => text(value).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+    function chips(items) {
+      if (!items || items.length === 0) return '<span class="empty">not found</span>';
+      return '<span class="chips">' + items.map((item) => '<span class="chip">' + escapeHtml(item) + '</span>').join("") + '</span>';
+    }
+
+    function accessLinks(access) {
+      const entries = Object.entries(access || {});
+      if (entries.length === 0) return '<span class="empty">not found</span>';
+      return entries.map(([label, url]) => '<a href="' + escapeHtml(url) + '">' + escapeHtml(label) + '</a>').join("<br>");
+    }
+
+    function sourceLinks(urls) {
+      if (!urls || urls.length === 0) return "";
+      return '<span class="source-links">' + urls.map((url, index) => '<a href="' + escapeHtml(url) + '">source ' + (index + 1) + '</a>').join("") + '</span>';
+    }
+
+    function resourceSearchText(resource) {
+      return text(JSON.stringify(resource));
+    }
+
+    function nodeMatchesResource(node, resource) {
+      if ((node.RelatedResources || []).includes(resource.Name)) return true;
+      const haystack = resourceSearchText(resource);
+      const nodeName = text(node.Node);
+      const simpleName = nodeName
+        .replace("språkbanken", "")
+        .replace("sprakbanken", "")
+        .replace("university of", "")
+        .replace("institutionen för", "")
+        .trim();
+      return haystack.includes(nodeName) || (simpleName.length > 3 && haystack.includes(simpleName));
+    }
+
+    function matchesResource(resource) {
+      const query = text(byId("resourceSearch").value).trim();
+      const group = byId("groupFilter").value;
+      const node = byId("nodeFilter").value;
+      const language = byId("languageFilter").value;
+      const confidence = byId("confidenceFilter").value;
+      const access = byId("accessFilter").value;
+
+      if (query && !resourceSearchText(resource).includes(query)) return false;
+      if (group && resource.Group !== group) return false;
+      if (language && !(resource.Language || []).includes(language)) return false;
+      if (confidence && resource.Confidence !== confidence) return false;
+      if (access && !Object.keys(resource.Access || {}).includes(access)) return false;
+      if (node) {
+        const selectedNode = nodes.find((item) => item.Node === node);
+        if (!selectedNode || !nodeMatchesResource(selectedNode, resource)) return false;
+      }
+      return true;
+    }
+
+    function renderResources() {
+      const shown = resources.filter(matchesResource);
+      byId("resourceCount").textContent = shown.length + " of " + resources.length + " resource records shown";
+      byId("resourceRows").innerHTML = shown.map((resource) => {
+        const name = '<strong><a href="' + escapeHtml(resource.URL || "#") + '">' + escapeHtml(resource.Name) + '</a></strong><br><span class="muted">' + escapeHtml(resource.Description || "") + '</span>';
+        const infra = escapeHtml(resource.Infrastructure || "not found") + '<br><span class="muted">' + escapeHtml(resource.CountryOrInstitution || "") + '</span>';
+        const licenceSize = escapeHtml(resource.Licence || "not found") + '<br>' + chips(resource.Size || []);
+        const confidence = '<span class="chip ' + chipClass(resource.Confidence) + '">' + escapeHtml(resource.Confidence || "unknown") + '</span>';
+        const notes = sourceLinks(resource.EvidenceURLs || []) + '<br><span class="muted">' + escapeHtml(resource.Notes || "") + '</span>';
+        return '<tr>' +
+          '<td class="name-cell">' + name + '</td>' +
+          '<td>' + escapeHtml(resource.Group || "Other") + '</td>' +
+          '<td>' + chips(resource.Modalities || []) + '</td>' +
+          '<td class="tiny-cell">' + chips(resource.Language || []) + '</td>' +
+          '<td class="wide-cell">' + infra + '</td>' +
+          '<td>' + accessLinks(resource.Access || {}) + '</td>' +
+          '<td>' + licenceSize + '</td>' +
+          '<td>' + chips(resource.Annotation || []) + '</td>' +
+          '<td class="tiny-cell">' + confidence + '</td>' +
+          '<td class="wide-cell">' + notes + '</td>' +
+          '</tr>';
+      }).join("");
+    }
+
+    function matchesNode(node) {
+      const query = text(byId("nodeSearch").value).trim();
+      const status = byId("nodeStatusFilter").value;
+      const treatment = byId("nodeTreatmentFilter").value;
+      if (query && !text(JSON.stringify(node)).includes(query)) return false;
+      if (status && node.Status !== status) return false;
+      if (treatment && node.SurveyTreatment !== treatment) return false;
+      return true;
+    }
+
+    function renderNodes() {
+      const shown = nodes.filter(matchesNode);
+      byId("nodeCount").textContent = shown.length + " of " + nodes.length + " Språkbanken nodes shown";
+      byId("nodeRows").innerHTML = shown.map((node) => {
+        const status = '<span class="chip ' + chipClass(node.Status) + '">' + escapeHtml(node.Status || "unknown") + '</span>';
+        return '<tr>' +
+          '<td class="name-cell"><strong><a href="' + escapeHtml(node.URL || "#") + '">' + escapeHtml(node.Node) + '</a></strong></td>' +
+          '<td>' + escapeHtml(node.Role || "") + '</td>' +
+          '<td class="tiny-cell">' + status + '</td>' +
+          '<td>' + escapeHtml(node.SurveyTreatment || "") + '</td>' +
+          '<td>' + chips(node.RelatedResources || []) + '</td>' +
+          '<td class="wide-cell">' + escapeHtml(node.Notes || "") + '</td>' +
+          '</tr>';
+      }).join("");
+    }
+
+    ["resourceSearch", "groupFilter", "nodeFilter", "languageFilter", "confidenceFilter", "accessFilter"].forEach((id) => {
+      byId(id).addEventListener("input", renderResources);
+      byId(id).addEventListener("change", renderResources);
+    });
+
+    ["nodeSearch", "nodeStatusFilter", "nodeTreatmentFilter"].forEach((id) => {
+      byId(id).addEventListener("input", renderNodes);
+      byId(id).addEventListener("change", renderNodes);
+    });
+
+    renderResources();
+    renderNodes();
+  </script>
 </body>
 </html>

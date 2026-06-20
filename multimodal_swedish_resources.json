@@ -4,17 +4,31 @@
     "URL": "http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view",
     "Family": "Manually annotated corpora",
     "Description": "Longitudinal recordings of child-caregiver interaction in everyday contexts. The CLARIN family record describes 60 transcripts from six children in Sweden and Thailand, with videos linked to transcripts on an utterance-by-utterance basis.",
-    "Language": ["swe", "tha"],
+    "Language": [
+      "swe",
+      "tha"
+    ],
     "Licence": "",
-    "Size": ["60 transcripts"],
-    "Annotation": ["video-transcription alignment", "word segmentation", "phonetic transcription"],
+    "Size": [
+      "60 transcripts"
+    ],
+    "Annotation": [
+      "video-transcription alignment",
+      "word segmentation",
+      "phonetic transcription"
+    ],
     "Infrastructure": "CLARIN; Lund University Humanities Lab",
     "Group": "Video-Audio Corpora",
     "Access": {
       "Concordancer": "http://hdl.handle.net/10050/00-0000-0000-0000-0002-7@view"
     },
     "Publication": "https://www.zotero.org/groups/562080/clarin/collections/2Y9ITDX8/items/XJIL9UWD/",
-    "Modalities": ["video", "audio", "transcripts", "linguistic annotation"],
+    "Modalities": [
+      "video",
+      "audio",
+      "transcripts",
+      "linguistic annotation"
+    ],
     "CountryOrInstitution": "Sweden; Thailand; Lund University Humanities Lab",
     "EvidenceURLs": [
       "https://github.com/clarin-eric/clarin-resource-families/blob/main/corpora/multimodal-corpora/video-linked-thai-swe.json",
@@ -28,10 +42,20 @@
     "URL": "https://teckensprakskorpus.su.se/",
     "Family": "Manually annotated corpora",
     "Description": "Web-based corpus tool for searching Swedish Sign Language corpus material. The information page states that video recordings and annotations were produced in the Swedish Sign Language Corpus project and can be downloaded for research and teaching; annotations are intended for use with ELAN.",
-    "Language": ["swl", "swe"],
+    "Language": [
+      "swl",
+      "swe"
+    ],
     "Licence": "",
     "Size": [],
-    "Annotation": ["ELAN annotation", "sign glosses", "handform", "articulator", "modification", "comment and tier-based search metadata"],
+    "Annotation": [
+      "ELAN annotation",
+      "sign glosses",
+      "handform",
+      "articulator",
+      "modification",
+      "comment and tier-based search metadata"
+    ],
     "Infrastructure": "Stockholm University; Department of Linguistics; STS-korpus",
     "Group": "Video-Audio Corpora",
     "Access": {
@@ -39,7 +63,11 @@
       "Download": "https://teckensprakskorpus.su.se/information"
     },
     "Publication": "https://su.se/forskning/forskningsprojekt/svensk-teckenspr%C3%A5kskorpus",
-    "Modalities": ["video", "sign language annotation", "gloss/text metadata"],
+    "Modalities": [
+      "video",
+      "sign language annotation",
+      "gloss/text metadata"
+    ],
     "CountryOrInstitution": "Sweden; Stockholm University",
     "EvidenceURLs": [
       "https://teckensprakskorpus.su.se/",
@@ -53,17 +81,35 @@
     "URL": "https://huggingface.co/datasets/KBLab/rixvox-v2",
     "Family": "Automatically annotated corpora",
     "Description": "Swedish parliamentary speech dataset from the National Library of Sweden / KBLab. The Hugging Face record describes audio and text data built by matching and force-aligning parliamentary protocols to media recordings of debates.",
-    "Language": ["swe"],
+    "Language": [
+      "swe"
+    ],
     "Licence": "ODC-BY",
-    "Size": ["3.56M rows", "nearly 23000 hours of speech"],
-    "Annotation": ["forced alignment", "speaker metadata", "party metadata", "role metadata", "date metadata", "speech/protocol identifiers", "automatic transcription fields"],
+    "Size": [
+      "3.56M rows",
+      "nearly 23000 hours of speech"
+    ],
+    "Annotation": [
+      "forced alignment",
+      "speaker metadata",
+      "party metadata",
+      "role metadata",
+      "date metadata",
+      "speech/protocol identifiers",
+      "automatic transcription fields"
+    ],
     "Infrastructure": "Hugging Face; National Library of Sweden / KBLab",
     "Group": "Audio Corpora",
     "Access": {
       "Download": "https://huggingface.co/datasets/KBLab/rixvox-v2"
     },
     "Publication": "",
-    "Modalities": ["audio", "text", "speaker metadata", "alignment metadata"],
+    "Modalities": [
+      "audio",
+      "text",
+      "speaker metadata",
+      "alignment metadata"
+    ],
     "CountryOrInstitution": "Sweden; National Library of Sweden / KBLab",
     "EvidenceURLs": [
       "https://huggingface.co/datasets/KBLab/rixvox-v2",
@@ -77,9 +123,13 @@
     "URL": "http://swedia.ling.gu.se/",
     "Family": "Spoken corpora",
     "Description": "Website for listening to recordings of more than 100 Swedish dialects recorded across Sweden and Swedish-speaking parts of Finland. It is included as a Swedish-hosted speech resource with audio linked to dialect/location context.",
-    "Language": ["swe"],
+    "Language": [
+      "swe"
+    ],
     "Licence": "",
-    "Size": ["more than 100 dialects"],
+    "Size": [
+      "more than 100 dialects"
+    ],
     "Annotation": [],
     "Infrastructure": "University of Gothenburg and Swedish dialect research context",
     "Group": "Audio Corpora",
@@ -87,7 +137,11 @@
       "Concordancer": "http://swedia.ling.gu.se/"
     },
     "Publication": "",
-    "Modalities": ["audio", "geographic/dialect metadata", "web text"],
+    "Modalities": [
+      "audio",
+      "geographic/dialect metadata",
+      "web text"
+    ],
     "CountryOrInstitution": "Sweden; University of Gothenburg",
     "EvidenceURLs": [
       "http://swedia.ling.gu.se/"
@@ -100,17 +154,29 @@
     "URL": "https://huggingface.co/datasets/google/fleurs",
     "Family": "Automatically annotated corpora",
     "Description": "Swedish subset of Google's FLEURS multilingual speech dataset. The Hugging Face dataset card lists audio and text modalities, Swedish (sv_se) as one subset, and fields for audio, transcription and raw transcription.",
-    "Language": ["swe"],
+    "Language": [
+      "swe"
+    ],
     "Licence": "CC-BY-4.0",
-    "Size": ["3.47k rows for sv_se"],
-    "Annotation": ["transcription", "raw transcription", "gender metadata", "language metadata"],
+    "Size": [
+      "3.47k rows for sv_se"
+    ],
+    "Annotation": [
+      "transcription",
+      "raw transcription",
+      "gender metadata",
+      "language metadata"
+    ],
     "Infrastructure": "Hugging Face; Google",
     "Group": "Audio Corpora",
     "Access": {
       "Download": "https://huggingface.co/datasets/google/fleurs"
     },
     "Publication": "https://arxiv.org/abs/2205.12446",
-    "Modalities": ["audio", "text"],
+    "Modalities": [
+      "audio",
+      "text"
+    ],
     "CountryOrInstitution": "International; includes Swedish",
     "EvidenceURLs": [
       "https://huggingface.co/datasets/google/fleurs"
@@ -123,10 +189,16 @@
     "URL": "https://commonvoice.mozilla.org/en/datasets",
     "Family": "Crowdsourced corpora",
     "Description": "Crowdsourced speech corpus pairing voice recordings with prompt text and validation metadata. The older Hugging Face record for Common Voice 17.0 states that Common Voice datasets moved to Mozilla Data Collective in October 2025.",
-    "Language": ["swe"],
+    "Language": [
+      "swe"
+    ],
     "Licence": "",
     "Size": [],
-    "Annotation": ["sentence prompts", "speaker metadata where volunteered", "validation metadata"],
+    "Annotation": [
+      "sentence prompts",
+      "speaker metadata where volunteered",
+      "validation metadata"
+    ],
     "Infrastructure": "Mozilla Common Voice; Mozilla Data Collective",
     "Group": "Audio Corpora",
     "Access": {
@@ -134,7 +206,11 @@
       "Catalogue": "https://mozilladatacollective.com/"
     },
     "Publication": "",
-    "Modalities": ["audio", "text", "speaker metadata"],
+    "Modalities": [
+      "audio",
+      "text",
+      "speaker metadata"
+    ],
     "CountryOrInstitution": "International; includes Swedish",
     "EvidenceURLs": [
       "https://commonvoice.mozilla.org/en/datasets",
@@ -145,27 +221,309 @@
     "Notes": "Included as a well-known Swedish speech/text resource, but current download and licence details should be rechecked in Mozilla Data Collective because the old Hugging Face dataset record is now empty."
   },
   {
-    "Name": "MuMiN multilingual multimodal misinformation dataset",
-    "URL": "https://mumin-dataset.github.io/",
-    "Family": "Social media corpora",
-    "Description": "Large-scale multilingual multimodal fact-checked misinformation dataset structured as a heterogeneous graph. The project page describes tweets, users, Twitter threads and fact-checked claims in 41 languages, with source code for compiling/exporting the dataset.",
+    "Name": "Eye-Tracked Frog Stories",
+    "URL": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_00E6_7",
+    "Family": "Sensor-based corpora",
+    "Description": "Lund Corpora collection organized into English and Swedish subcollections, with a Swedish branch further organized by images and persons. Included as a Sweden-hosted multimodal/sensor collection linked to eye-tracked narrative material.",
+    "Language": [
+      "eng",
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [],
+    "Annotation": [
+      "repository metadata",
+      "eye-tracking data"
+    ],
+    "Infrastructure": "CLARIN; Språkbanken CLARIN; Lund University Humanities Lab; CLARIN-MULTISENS",
+    "Group": "Sensor and Eye-Tracking Corpora",
+    "Access": {
+      "Catalogue": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_00E6_7",
+      "Swedish subset": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_019A_C"
+    },
+    "Publication": "",
+    "Modalities": [
+      "text/narrative elicitation",
+      "images",
+      "eye-tracking data",
+      "repository metadata"
+    ],
+    "CountryOrInstitution": "Sweden; Lund University Humanities Lab",
+    "EvidenceURLs": [
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_00E6_7",
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_019A_C"
+    ],
+    "Confidence": "medium",
+    "Notes": "The public collection hierarchy confirms English and Swedish branches; detailed licence, size, and file-level annotation should be checked in the archive."
+  },
+  {
+    "Name": "Tactile Reading",
+    "URL": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0462_E",
+    "Family": "Sensor-based corpora",
+    "Description": "Participants read a short text from Pippi Longstocking and feel a tactile image of a face. The LU Humanities Lab Archive description says the material was recorded by an automated finger-tracker; item descriptions mention video generated by finger-tracking, spoken retelling, diagrams and tracked coordinates.",
     "Language": [],
     "Licence": "",
-    "Size": ["21,565,018 tweets", "1,986,354 users", "26,048 Twitter threads", "12,914 fact-checked claims", "41 languages"],
-    "Annotation": ["claim verdict labels", "tweet classification labels", "graph links", "fact-checking metadata"],
-    "Infrastructure": "GitHub; Python package",
-    "Group": "Social Media Corpora",
+    "Size": [],
+    "Annotation": [
+      "finger-tracking coordinates",
+      "IR motion tracking",
+      "video visualization",
+      "repository metadata"
+    ],
+    "Infrastructure": "CLARIN; Språkbanken CLARIN; Lund University Humanities Lab; CLARIN-MULTISENS",
+    "Group": "Sensor and Eye-Tracking Corpora",
     "Access": {
-      "Download": "https://github.com/mumin-dataset/MuMiN-build"
+      "Catalogue": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0462_E"
     },
-    "Publication": "https://arxiv.org/abs/2202.11684",
-    "Modalities": ["social media text", "images", "articles", "graph metadata", "fact-check labels"],
-    "CountryOrInstitution": "Denmark/UK authorship; multilingual",
+    "Publication": "",
+    "Modalities": [
+      "text reading",
+      "speech",
+      "tactile image",
+      "finger-tracking",
+      "IR motion tracking",
+      "video",
+      "diagrams"
+    ],
+    "CountryOrInstitution": "Sweden; Lund University Humanities Lab",
     "EvidenceURLs": [
-      "https://mumin-dataset.github.io/",
-      "https://github.com/mumin-dataset/MuMiN-build"
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0462_E",
+      "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/lu.html"
+    ],
+    "Confidence": "high",
+    "Notes": "Language is not explicitly encoded in the inspected collection metadata; the Pippi Longstocking text context suggests Swedish relevance but this is not asserted in the Language field."
+  },
+  {
+    "Name": "Strömqvist-Richthoff",
+    "URL": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_C046_E",
+    "Family": "Writing and language acquisition corpora",
+    "Description": "Strömqvist-Richthoff collection listed under Lund Corpora. The collection name points to Swedish writing/language acquisition research, but the public listing inspected in this pass did not expose a description.",
+    "Language": [],
+    "Licence": "",
+    "Size": [],
+    "Annotation": [
+      "repository metadata"
+    ],
+    "Infrastructure": "CLARIN; Lund University Humanities Lab",
+    "Group": "Writing and Interaction Corpora",
+    "Access": {
+      "Catalogue": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_C046_E"
+    },
+    "Publication": "",
+    "Modalities": [
+      "writing/language data",
+      "repository metadata"
+    ],
+    "CountryOrInstitution": "Sweden-hosted; Lund University Humanities Lab",
+    "EvidenceURLs": [
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0001_D?page=1&display=list"
     ],
     "Confidence": "low",
-    "Notes": "Potential Swedish-language inclusion is plausible under the 41-language coverage but was not verified in the first-pass source inspection. Retained as a low-confidence lead because it is genuinely multimodal and multilingual."
+    "Notes": "Added as a lead from the Lund Corpora inventory; needs file-level verification before strong claims."
+  },
+  {
+    "Name": "Folke",
+    "URL": "https://www.isof.se/folkminnen/folke",
+    "Family": "Archive corpora",
+    "Description": "Digital archive service from the Institute for Language and Folklore (Isof) exposing a selection of older archive material about people's lives, work, everyday life, festivities, experiences and memories from the late 19th century onward. The public page says users can search, read, listen and transcribe material; current material includes folk-memory records, questionnaires and recordings.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [],
+    "Annotation": [
+      "user/community transcription",
+      "archive metadata",
+      "accession metadata",
+      "place metadata",
+      "collector metadata"
+    ],
+    "Infrastructure": "Isof; Språkbanken Sam; Språkbanken CLARIN",
+    "Group": "Archive Audio and Text Corpora",
+    "Access": {
+      "Catalogue": "https://www.isof.se/folkminnen/folke",
+      "Service": "https://sok.folke.isof.se/"
+    },
+    "Publication": "",
+    "Modalities": [
+      "manuscript/text records",
+      "audio recordings",
+      "transcriptions",
+      "map/place metadata",
+      "archive metadata"
+    ],
+    "CountryOrInstitution": "Sweden; Institute for Language and Folklore (Isof)",
+    "EvidenceURLs": [
+      "https://www.isof.se/folkminnen/folke",
+      "https://sok.folke.isof.se/",
+      "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/isof.html"
+    ],
+    "Confidence": "high",
+    "Notes": "Added after the user pointed out the missing Isof/Folke resource. It is Swedish-content archival material and clearly multimodal through text/manuscripts, recordings, listening and transcription workflows. Licence/download details were not found on the public overview page."
+  },
+  {
+    "Name": "Isof dialect and folklore recordings / Intervjuer och inspelningar",
+    "URL": "https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar",
+    "Family": "Spoken corpora",
+    "Description": "Isof's collections of spoken-language recordings, mainly interviews documenting dialects and folklore in Sweden. The public page reports roughly 25,000 recorded hours, including around 15,500 gramophone discs, more than 18,000 reel tapes and nearly 9,000 cassettes, with some transcripts available for ordering.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [
+      "approximately 25,000 recorded hours",
+      "circa 15,500 gramophone discs",
+      "more than 18,000 reel tapes",
+      "nearly 9,000 cassettes"
+    ],
+    "Annotation": [
+      "archive metadata",
+      "some transcripts/utskrifter",
+      "geographic metadata",
+      "speaker/interview context metadata"
+    ],
+    "Infrastructure": "Isof; Språkbanken Sam; Språkbanken CLARIN",
+    "Group": "Archive Audio and Text Corpora",
+    "Access": {
+      "Information": "https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar",
+      "Folke": "https://www.isof.se/folkminnen/folke",
+      "On-site/order": "https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar"
+    },
+    "Publication": "",
+    "Modalities": [
+      "audio",
+      "interviews",
+      "speech",
+      "transcripts where available",
+      "archive metadata"
+    ],
+    "CountryOrInstitution": "Sweden; Institute for Language and Folklore (Isof)",
+    "EvidenceURLs": [
+      "https://www.isof.se/dialekter/vara-dialektsamlingar/intervjuer-och-inspelningar",
+      "https://www.isof.se/folkminnen/folke"
+    ],
+    "Confidence": "high",
+    "Notes": "This is a collection-level entry because Isof describes the holdings and access routes at collection scale rather than as one downloadable corpus."
+  },
+  {
+    "Name": "Dialektkartan",
+    "URL": "https://www.isof.se/dialekter/vara-dialektsamlingar/dialektkartan",
+    "Family": "Spoken corpora",
+    "Description": "Isof map service for listening to hundreds of shorter audio clips from older Swedish dialect recordings from across Sweden, mainly recordings from 1935-1970. Full-length recordings and written records are routed to Folke.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [
+      "hundreds of shorter audio clips"
+    ],
+    "Annotation": [
+      "geographic metadata",
+      "dialect/place metadata",
+      "archive metadata"
+    ],
+    "Infrastructure": "Isof; Språkbanken Sam; Språkbanken CLARIN",
+    "Group": "Archive Audio and Text Corpora",
+    "Access": {
+      "Map/browser": "https://dialektkartan.isof.se/",
+      "Information": "https://www.isof.se/dialekter/vara-dialektsamlingar/dialektkartan"
+    },
+    "Publication": "",
+    "Modalities": [
+      "audio",
+      "map/geographic interface",
+      "dialect metadata",
+      "archive metadata"
+    ],
+    "CountryOrInstitution": "Sweden; Institute for Language and Folklore (Isof)",
+    "EvidenceURLs": [
+      "https://www.isof.se/dialekter/vara-dialektsamlingar/dialektkartan",
+      "https://dialektkartan.isof.se/"
+    ],
+    "Confidence": "high",
+    "Notes": "Included as a Swedish dialect audio-plus-map resource; it is a browser/service view rather than a bulk-download corpus."
+  },
+  {
+    "Name": "SpeechDat Swedish (KTH Hugging Face release)",
+    "URL": "https://huggingface.co/datasets/KTH/speechdat",
+    "Family": "Spoken corpora",
+    "Description": "KTH Hugging Face release of the SpeechDat dataset. The dataset repository contains a loader script, metadata JSON, README and a large WAV archive; the README describes loading the dataset with local WAV files in a speechdat/wav directory. This supersedes the earlier ELRA-only catalogue references in this survey for the KTH-accessible SpeechDat release.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [
+      "wav.zip; repository storage about 28 GB"
+    ],
+    "Annotation": [
+      "dataset loader",
+      "metadata JSON",
+      "prompt/audio pairing"
+    ],
+    "Infrastructure": "Hugging Face; KTH; Språkbanken Tal; Språkbanken CLARIN",
+    "Group": "Telephone Speech Corpora",
+    "Access": {
+      "Download": "https://huggingface.co/datasets/KTH/speechdat",
+      "README": "https://huggingface.co/datasets/KTH/speechdat/raw/main/README.md"
+    },
+    "Publication": "",
+    "Modalities": [
+      "speech audio",
+      "text/prompts",
+      "metadata",
+      "dataset loader"
+    ],
+    "CountryOrInstitution": "Sweden; KTH / Språkbanken Tal",
+    "EvidenceURLs": [
+      "https://huggingface.co/datasets/KTH/speechdat",
+      "https://huggingface.co/api/datasets/KTH/speechdat",
+      "https://huggingface.co/datasets/KTH/speechdat/raw/main/README.md",
+      "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kth.html"
+    ],
+    "Confidence": "high",
+    "Notes": "Replaces the separate ELRA catalogue-only SpeechDat entries after confirming the KTH Hugging Face dataset. The old ELRA records remain useful provenance/distribution references but are no longer the primary survey entry."
+  },
+  {
+    "Name": "Waxholm corpus",
+    "URL": "https://huggingface.co/datasets/KTH/waxholm",
+    "Family": "Spoken dialogue corpora",
+    "Description": "Swedish spoken dialogue corpus collected in 1993-1994 at the Department of Speech, Hearing and Music (TMH), KTH. The Hugging Face dataset card describes sampled speech files and label files; labels include orthographic text, phonetic/phonemic labels, word-level labels and alignment information.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [],
+    "Annotation": [
+      "orthographic transcription",
+      "phonetic labels",
+      "phonemic labels",
+      "word-level labels",
+      "automatic alignment",
+      "manual correction",
+      "SAMPA/STA phoneme inventory"
+    ],
+    "Infrastructure": "Hugging Face; KTH; Språkbanken Tal; Språkbanken CLARIN",
+    "Group": "Spoken Dialogue Corpora",
+    "Access": {
+      "Download": "https://huggingface.co/datasets/KTH/waxholm",
+      "README": "https://huggingface.co/datasets/KTH/waxholm/raw/main/README.md"
+    },
+    "Publication": "@article{bertenstam1995spoken, title={Spoken dialogue data collected in the Waxholm project}, journal={STH-QPSR, KTH}, year={1995}}",
+    "Modalities": [
+      "speech audio",
+      "dialogue",
+      "orthographic text",
+      "phonetic/phonemic annotation",
+      "alignment labels"
+    ],
+    "CountryOrInstitution": "Sweden; KTH / Språkbanken Tal",
+    "EvidenceURLs": [
+      "https://huggingface.co/datasets/KTH/waxholm",
+      "https://huggingface.co/api/datasets/KTH/waxholm",
+      "https://huggingface.co/datasets/KTH/waxholm/raw/main/README.md",
+      "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/kth.html"
+    ],
+    "Confidence": "high",
+    "Notes": "Added after user pointed out the Hugging Face release. The repository contains .wav, .smp and .mix files and KTH publications describing the corpus."
   }
 ]
