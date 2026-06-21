@@ -101,6 +101,19 @@ const html = `<!doctype html>
       border-bottom: 1px solid var(--line);
     }
 
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 24px;
+    }
+
+    .site-logo {
+      width: min(260px, 28vw);
+      max-height: 96px;
+      object-fit: contain;
+    }
+
     .wrap {
       max-width: 1280px;
       margin: 0 auto;
@@ -435,6 +448,15 @@ const html = `<!doctype html>
         padding: 18px 12px;
       }
 
+      .masthead {
+        grid-template-columns: 1fr;
+      }
+
+      .site-logo {
+        grid-row: 1;
+        width: min(220px, 70vw);
+      }
+
       .filters,
       .filters.compact {
         grid-template-columns: 1fr;
@@ -449,15 +471,20 @@ const html = `<!doctype html>
 <body>
   <header>
     <div class="wrap">
-      <p class="eyebrow">Swedish multimodal language resources</p>
-      <h1>First-pass survey with Språkbanken node coverage</h1>
-      <p class="lead">A searchable, table-first inventory of public or publicly described Swedish and Sweden-hosted multimodal language resources. The node layer keeps reviewed Språkbanken/SWE-CLARIN institutions visible even when no packaged public dataset was confirmed.</p>
-      <div class="notice">This is a discovery pass, not a completeness claim. Several nodes expose infrastructure, archive interfaces, or sensitive internal collections that may not resolve to shareable public datasets.</div>
-      <div class="actions">
-        <a class="button" href="multimodal_swedish_resources.json">Download resource JSON</a>
-        <a class="button" href="node_coverage.json">Download node coverage JSON</a>
-        <a class="button" href="sources.md">Source notes</a>
-        <a class="button" href="node_reassessment.md">Node reassessment</a>
+      <div class="masthead">
+        <div>
+          <p class="eyebrow">Swedish multimodal language resources</p>
+          <h1>First-pass survey with Språkbanken node coverage</h1>
+          <p class="lead">A searchable, table-first inventory of public or publicly described Swedish and Sweden-hosted multimodal language resources. The node layer keeps reviewed Språkbanken/SWE-CLARIN institutions visible even when no packaged public dataset was confirmed.</p>
+          <div class="notice">This page is generated with AI assistance. The data is a discovery pass, not a completeness claim. Several nodes expose infrastructure, archive interfaces, or internal collections that may not resolve to shareable public datasets.</div>
+          <div class="actions">
+            <a class="button" href="multimodal_swedish_resources.json">Download resource JSON</a>
+            <a class="button" href="node_coverage.json">Download node coverage JSON</a>
+            <a class="button" href="sources.md">Source notes</a>
+            <a class="button" href="node_reassessment.md">Node reassessment</a>
+          </div>
+        </div>
+        <img class="site-logo" src="sprakbanken_clarin_logo.png" alt="Språkbanken CLARIN">
       </div>
     </div>
   </header>
