@@ -14,7 +14,10 @@
     "Role": "Speech analysis and Swedish speech-technology resources.",
     "Status": "confirmed resources",
     "SurveyTreatment": "Primary source for KTH speech resources.",
-    "RelatedResources": ["SpeechDat Swedish (KTH Hugging Face release)", "Waxholm corpus"],
+    "RelatedResources": [
+      "SpeechDat Swedish (KTH Hugging Face release)",
+      "Waxholm corpus"
+    ],
     "Notes": "Hugging Face records under the KTH organization now provide direct access points for SpeechDat and Waxholm."
   },
   {
@@ -23,7 +26,11 @@
     "Role": "Language and folklore archive resources, dialects, names and folk-memory material.",
     "Status": "confirmed resources",
     "SurveyTreatment": "Primary source for Swedish archive audio/text/map resources.",
-    "RelatedResources": ["Folke", "Isof dialect and folklore recordings / Intervjuer och inspelningar", "Dialektkartan"],
+    "RelatedResources": [
+      "Folke",
+      "Isof dialect and folklore recordings / Intervjuer och inspelningar",
+      "Dialektkartan"
+    ],
     "Notes": "Folke and Dialektkartan expose public browser interfaces; large underlying collections may have access restrictions."
   },
   {
@@ -50,7 +57,12 @@
     "Role": "CLARIN-MULTISENS C/K-centre for multimodal and sensor-based data.",
     "Status": "confirmed resources",
     "SurveyTreatment": "Primary source for Swedish or Swedish-relevant multimodal/sensor resources.",
-    "RelatedResources": ["Video-linked Thai/Swedish child data corpus", "Eye-Tracked Frog Stories", "Tactile Reading", "SweDia 2000"],
+    "RelatedResources": [
+      "Video-linked Thai/Swedish child data corpus",
+      "Eye-Tracked Frog Stories",
+      "Tactile Reading",
+      "SweDia 2000"
+    ],
     "Notes": "The Lund archive also hosts many non-Swedish language-documentation collections; those were excluded from the main JSON unless Swedish content was verified."
   },
   {
@@ -68,7 +80,9 @@
     "Role": "Computational linguistics and Swedish Sign Language resources.",
     "Status": "confirmed resources",
     "SurveyTreatment": "Primary source for Swedish Sign Language corpus evidence.",
-    "RelatedResources": ["Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)"],
+    "RelatedResources": [
+      "Svensk teckensprakskorpus / Swedish Sign Language Corpus (STS-korpus)"
+    ],
     "Notes": "The node page states STS-korpusen had 18 hours of video and 146,000 annotated sign tokens as of 2019-12-31."
   },
   {
@@ -77,7 +91,9 @@
     "Role": "National Library of Sweden language resources, cultural heritage data and KBLab datasets.",
     "Status": "confirmed resources",
     "SurveyTreatment": "Primary source for parliamentary speech via KBLab.",
-    "RelatedResources": ["RixVox-v2"],
+    "RelatedResources": [
+      "RixVox-v2"
+    ],
     "Notes": "KBLab Hugging Face datasets include RixVox-v2, a Swedish parliamentary speech resource."
   },
   {
@@ -93,9 +109,12 @@
     "Node": "Riksarkivet",
     "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/ra.html",
     "Role": "National archive, historical documents, maps, images and DiaRes participation.",
-    "Status": "reviewed lead",
-    "SurveyTreatment": "Mentioned as a node; potential image+text/OCR archive source but no packaged dataset added.",
-    "RelatedResources": [],
-    "Notes": "Public node page points to NAD and Digitala forskarsalen. Further work should check APIs, OCR/transcription datasets and metadata-only records."
+    "Status": "confirmed resources",
+    "SurveyTreatment": "Primary source for Riksarkivet HTR/OCR training data and a reviewed lead for additional archive image/text datasets.",
+    "RelatedResources": [
+      "Training data for Swedish Lion Libre",
+      "Swedish Fraktur"
+    ],
+    "Notes": "Riksarkivet Hugging Face datasets include public image+text HTR/OCR training data. Swedish Lion Libre groups line-level training datasets, and Swedish Fraktur is a separate OCR dataset with explicit Språkbanken provenance."
   }
 ]

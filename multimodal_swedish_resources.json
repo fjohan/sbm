@@ -525,5 +525,84 @@
     ],
     "Confidence": "high",
     "Notes": "Added after user pointed out the Hugging Face release. The repository contains .wav, .smp and .mix files and KTH publications describing the corpus."
+  },
+  {
+    "Name": "Training data for Swedish Lion Libre",
+    "URL": "https://huggingface.co/collections/Riksarkivet/training-data-for-swedish-lion-libre",
+    "Family": "HTR/OCR training corpora",
+    "Description": "Hugging Face collection from Riksarkivet grouping public training data used to create the Swedish Lion Libre HTR model set. The collection contains 11 text-line datasets from Swedish archival sources; Hugging Face dataset-server metadata reports image and text modalities for each listed dataset.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [
+      "11 line-level datasets",
+      "565,146 rows across collection items"
+    ],
+    "Annotation": [
+      "text-line transcription",
+      "HTR training data",
+      "image-text pairs",
+      "Parquet dataset records"
+    ],
+    "Infrastructure": "Hugging Face; Riksarkivet; Swedish National Archives; Språkbanken CLARIN node",
+    "Group": "HTR and OCR Corpora",
+    "Access": {
+      "Collection": "https://huggingface.co/collections/Riksarkivet/training-data-for-swedish-lion-libre",
+      "Organization": "https://huggingface.co/Riksarkivet/datasets"
+    },
+    "Publication": "",
+    "Modalities": [
+      "document line images",
+      "transcribed text",
+      "archival metadata",
+      "HTR/OCR training records"
+    ],
+    "CountryOrInstitution": "Sweden; Riksarkivet / Swedish National Archives",
+    "EvidenceURLs": [
+      "https://huggingface.co/collections/Riksarkivet/training-data-for-swedish-lion-libre",
+      "https://huggingface.co/api/collections/Riksarkivet/training-data-for-swedish-lion-libre",
+      "https://huggingface.co/Riksarkivet/datasets"
+    ],
+    "Confidence": "high",
+    "Notes": "Added as a collection-level entry rather than one record per line dataset. Collection items include goteborgs_poliskammare_fore_1900_lines, svea_hovratt_lines, krigshovrattens_dombocker_lines, bergskollegium_relationer_och_skrivelser_lines, frihetstidens_utskottshandlingar_lines, carl_fredrik_pahlmans_resejournaler_lines, trolldomskommissionen_lines, gota_hovratt_lines, bergmastaren_i_nora_htr_lines, alvsborgs_losen_lines, and jonkopings_radhusratt_och_magistrat_lines. Individual item licences/descriptions may need follow-up."
+  },
+  {
+    "Name": "Swedish Fraktur",
+    "URL": "https://huggingface.co/datasets/Riksarkivet/swedish_fraktur",
+    "Family": "OCR training corpora",
+    "Description": "Riksarkivet Hugging Face dataset for Swedish 19th-century blackletter. The dataset card says transcriptions were made by Språkbanken and converted into a text-line dataset by the Swedish National Archives; the stated direct use is training text-line OCR models for Swedish 19th-century blackletter.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "Apache-2.0",
+    "Size": [
+      "24,508 train examples",
+      "download size approximately 1.44 GB"
+    ],
+    "Annotation": [
+      "text-line transcription",
+      "image-to-text pairs",
+      "OCR training labels"
+    ],
+    "Infrastructure": "Hugging Face; Riksarkivet; Swedish National Archives; Språkbanken",
+    "Group": "HTR and OCR Corpora",
+    "Access": {
+      "Download": "https://huggingface.co/datasets/Riksarkivet/swedish_fraktur",
+      "API": "https://huggingface.co/api/datasets/Riksarkivet/swedish_fraktur"
+    },
+    "Publication": "",
+    "Modalities": [
+      "document line images",
+      "text transcriptions",
+      "OCR/HTR training data"
+    ],
+    "CountryOrInstitution": "Sweden; Riksarkivet / Swedish National Archives; Språkbanken",
+    "EvidenceURLs": [
+      "https://huggingface.co/datasets/Riksarkivet/swedish_fraktur",
+      "https://huggingface.co/api/datasets/Riksarkivet/swedish_fraktur"
+    ],
+    "Confidence": "high",
+    "Notes": "The Hugging Face card explicitly lists task_categories:image-to-text, language:sv, modality:image, modality:text, and dataset features image and text. It is kept separate from the Swedish Lion Libre collection because the card is well described and has explicit Språkbanken provenance."
   }
 ]
