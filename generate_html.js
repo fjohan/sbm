@@ -346,6 +346,37 @@ const html = `<!doctype html>
       white-space: nowrap;
     }
 
+    th button {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 700;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      cursor: pointer;
+    }
+
+    th button::after {
+      content: "↕";
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    th button[data-sort-direction="ascending"]::after {
+      content: "↑";
+      color: var(--accent);
+    }
+
+    th button[data-sort-direction="descending"]::after {
+      content: "↓";
+      color: var(--accent);
+    }
+
     tbody tr:hover {
       background: #f3f8f8;
     }
@@ -560,16 +591,16 @@ const html = `<!doctype html>
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Group</th>
-              <th>Modalities</th>
-              <th>Languages</th>
-              <th>Infrastructure / Institution</th>
-              <th>Access</th>
-              <th>Licence / Size</th>
-              <th>Annotation</th>
-              <th>Confidence</th>
-              <th>Sources / Notes</th>
+              <th><button type="button" data-resource-sort="Name">Name</button></th>
+              <th><button type="button" data-resource-sort="Group">Group</button></th>
+              <th><button type="button" data-resource-sort="Modalities">Modalities</button></th>
+              <th><button type="button" data-resource-sort="Language">Languages</button></th>
+              <th><button type="button" data-resource-sort="Infrastructure">Infrastructure / Institution</button></th>
+              <th><button type="button" data-resource-sort="Access">Access</button></th>
+              <th><button type="button" data-resource-sort="Licence">Licence / Size</button></th>
+              <th><button type="button" data-resource-sort="Annotation">Annotation</button></th>
+              <th><button type="button" data-resource-sort="Confidence">Confidence</button></th>
+              <th><button type="button" data-resource-sort="Notes">Sources / Notes</button></th>
             </tr>
           </thead>
           <tbody id="resourceRows"></tbody>
@@ -629,6 +660,7 @@ const html = `<!doctype html>
   <script>
     const resources = JSON.parse(document.getElementById("resource-data").textContent);
     const nodes = JSON.parse(document.getElementById("node-data").textContent);
+    const resourceSort = { field: "Name", direction: "ascending" };
 
     const byId = (id) => document.getElementById(id);
     const text = (value) => String(value || "").toLowerCase();
@@ -658,6 +690,35 @@ const html = `<!doctype html>
 
     function resourceSearchText(resource) {
       return text(JSON.stringify(resource));
+    }
+
+    function sortText(value) {
+      if (Array.isArray(value)) return value.join(" ");
+      if (value && typeof value === "object") return Object.keys(value).join(" ") + " " + Object.values(value).join(" ");
+      return String(value || "");
+    }
+
+    function resourceSortValue(resource, field) {
+      if (field === "Infrastructure") {
+        return sortText([resource.Infrastructure, resource.CountryOrInstitution]);
+      }
+      if (field === "Access") {
+        return sortText(resource.Access || {});
+      }
+      if (field === "Licence") {
+        return sortText([resource.Licence, resource.Size]);
+      }
+      if (field === "Notes") {
+        return sortText([resource.EvidenceURLs, resource.Notes]);
+      }
+      return sortText(resource[field]);
+    }
+
+    function updateResourceSortButtons() {
+      document.querySelectorAll("[data-resource-sort]").forEach((button) => {
+        button.dataset.sortDirection = button.dataset.resourceSort === resourceSort.field ? resourceSort.direction : "none";
+        button.setAttribute("aria-label", button.textContent + ", sort " + button.dataset.sortDirection);
+      });
     }
 
     function nodeMatchesResource(node, resource) {
@@ -694,7 +755,20 @@ const html = `<!doctype html>
     }
 
     function renderResources() {
-      const shown = resources.filter(matchesResource);
+      const shown = resources.filter(matchesResource).sort((a, b) => {
+        const direction = resourceSort.direction === "ascending" ? 1 : -1;
+        const primary = resourceSortValue(a, resourceSort.field).localeCompare(
+          resourceSortValue(b, resourceSort.field),
+          undefined,
+          { sensitivity: "base", numeric: true }
+        );
+        if (primary !== 0) return primary * direction;
+        return resourceSortValue(a, "Name").localeCompare(resourceSortValue(b, "Name"), undefined, {
+          sensitivity: "base",
+          numeric: true
+        });
+      });
+      updateResourceSortButtons();
       byId("resourceCount").textContent = shown.length + " of " + resources.length + " resource records shown";
       byId("resourceRows").innerHTML = shown.map((resource) => {
         const name = '<strong><a href="' + escapeHtml(resource.URL || "#") + '">' + escapeHtml(resource.Name) + '</a></strong><br><span class="muted">' + escapeHtml(resource.Description || "") + '</span>';
@@ -746,6 +820,19 @@ const html = `<!doctype html>
     ["resourceSearch", "groupFilter", "nodeFilter", "languageFilter", "confidenceFilter", "accessFilter"].forEach((id) => {
       byId(id).addEventListener("input", renderResources);
       byId(id).addEventListener("change", renderResources);
+    });
+
+    document.querySelectorAll("[data-resource-sort]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const field = button.dataset.resourceSort;
+        if (resourceSort.field === field) {
+          resourceSort.direction = resourceSort.direction === "ascending" ? "descending" : "ascending";
+        } else {
+          resourceSort.field = field;
+          resourceSort.direction = "ascending";
+        }
+        renderResources();
+      });
     });
 
     ["nodeSearch", "nodeStatusFilter", "nodeTreatmentFilter"].forEach((id) => {

@@ -61,10 +61,10 @@
       "Video-linked Thai/Swedish child data corpus",
       "Eye-Tracked Frog Stories",
       "Tactile Reading",
-      "SweDia 2000",
-      "LACOLA Övdalian fieldwork collection"
+      "LACOLA Övdalian fieldwork collection",
+      "Swedia 2000 (research)"
     ],
-    "Notes": "The Lund archive hosts Swedish and Swedish-relevant multimodal/sensor resources, including LACOLA Övdalian fieldwork. The archive also hosts many non-Swedish language-documentation collections; those were excluded from the main JSON unless Swedish/Sweden relevance was verified."
+    "Notes": "The Lund archive hosts Swedish and Swedish-relevant multimodal/sensor resources, including LACOLA Övdalian fieldwork and the Swedia 2000 research corpus. The public Swedia 2000 site is hosted at ling.gu.se/Gothenburg and is tracked separately from the Lund research archive. Non-Swedish language-documentation collections were excluded from the main JSON unless Swedish/Sweden relevance was verified."
   },
   {
     "Node": "Humlab, Umeå University",

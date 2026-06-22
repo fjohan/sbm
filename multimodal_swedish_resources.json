@@ -119,10 +119,10 @@
     "Notes": "Merged with the earlier RixVox record as the same underlying parliamentary-speech resource family; v2 is listed as the current, larger dataset."
   },
   {
-    "Name": "SweDia 2000",
+    "Name": "Swedia 2000 (public)",
     "URL": "http://swedia.ling.gu.se/",
     "Family": "Spoken corpora",
-    "Description": "Website for listening to recordings of more than 100 Swedish dialects recorded across Sweden and Swedish-speaking parts of Finland. It is included as a Swedish-hosted speech resource with audio linked to dialect/location context.",
+    "Description": "Public web version of the Swedia 2000 Swedish dialect corpus, hosted at ling.gu.se. The site provides listening access to recordings of more than 100 Swedish dialects recorded across Sweden and Swedish-speaking parts of Finland, with audio linked to dialect/location context.",
     "Language": [
       "swe"
     ],
@@ -131,10 +131,10 @@
       "more than 100 dialects"
     ],
     "Annotation": [],
-    "Infrastructure": "University of Gothenburg and Swedish dialect research context",
+    "Infrastructure": "University of Gothenburg; ling.gu.se; Swedia 2000 public website",
     "Group": "Audio Corpora",
     "Access": {
-      "Concordancer": "http://swedia.ling.gu.se/"
+      "Public website": "http://swedia.ling.gu.se/"
     },
     "Publication": "",
     "Modalities": [
@@ -147,7 +147,40 @@
       "http://swedia.ling.gu.se/"
     ],
     "Confidence": "medium",
-    "Notes": "The landing page clearly exposes audio listening and dialect metadata, but the first-pass inspection did not verify downloadable corpus files or systematic transcription availability."
+    "Notes": "Renamed from SweDia 2000 to standardize spelling as Swedia 2000 and distinguish the public Gothenburg website from the LU Humanities Lab Archive research corpus. This public version is hosted at ling.gu.se and should not be treated as a Lund node resource."
+  },
+  {
+    "Name": "Swedia 2000 (research)",
+    "URL": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0FF8_E",
+    "Family": "Spoken corpora",
+    "Description": "LU Humanities Lab Archive research corpus for Swedia 2000. The archive page describes it as a research corpus as well as a public corpus of Swedish dialects, recorded 1998-2001 by the Swedia 2000 project and described in IMDI within the ECHO project. The archive organizes material by Finland, Götaland, Norrland, Svealand and SwediaTest2012.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [],
+    "Annotation": [
+      "IMDI metadata",
+      "some transcriptions"
+    ],
+    "Infrastructure": "LU Humanities Lab Archive; Lund University Humanities Lab; ECHO project metadata",
+    "Group": "Audio Corpora",
+    "Access": {
+      "Catalogue": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0FF8_E"
+    },
+    "Publication": "",
+    "Modalities": [
+      "audio",
+      "dialect metadata",
+      "transcriptions where available",
+      "archive metadata"
+    ],
+    "CountryOrInstitution": "Sweden; Lund University Humanities Lab; Swedia 2000 project",
+    "EvidenceURLs": [
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0FF8_E"
+    ],
+    "Confidence": "medium",
+    "Notes": "Added separately from the public Gothenburg site because LU hosts the fuller research dataset. It is less visibly multimodal than some Lund archive resources, but included because the research archive contains audio, metadata and some transcriptions. Isof may also hold related material, but a clear public access point was not identified in this pass."
   },
   {
     "Name": "FLEURS Swedish (sv_se)",
