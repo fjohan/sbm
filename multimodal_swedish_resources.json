@@ -604,5 +604,51 @@
     ],
     "Confidence": "high",
     "Notes": "The Hugging Face card explicitly lists task_categories:image-to-text, language:sv, modality:image, modality:text, and dataset features image and text. It is kept separate from the Swedish Lion Libre collection because the card is well described and has explicit Språkbanken provenance."
+  },
+  {
+    "Name": "LACOLA Övdalian fieldwork collection",
+    "URL": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_7BD6_8",
+    "Family": "Language documentation and fieldwork corpora",
+    "Description": "LU Humanities Lab Archive collection for Övdalian fieldwork under LACOLA. The collection includes conversations, elicitation tasks, field walks and narratives, with .wav audio, .mpg video, ELAN .eaf annotation files, and visual/spatial elicitation stimuli such as photographs, maps/routes, picture narratives and video stimuli.",
+    "Language": [
+      "ovd",
+      "swe"
+    ],
+    "Licence": "",
+    "Size": [],
+    "Annotation": [
+      "ELAN annotation",
+      "fieldwork metadata",
+      "task and stimulus descriptions",
+      "audio/video-linked annotation"
+    ],
+    "Infrastructure": "LU Humanities Lab Archive; LACOLA; CLARIN; Lund University Humanities Lab",
+    "Group": "Language Documentation Corpora",
+    "Access": {
+      "Catalogue": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_7BD6_8",
+      "Video example": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_D049_F"
+    },
+    "Publication": "",
+    "Modalities": [
+      "audio",
+      "video",
+      "ELAN annotation",
+      "stimulus images",
+      "maps/routes",
+      "picture narratives",
+      "fieldwork metadata"
+    ],
+    "CountryOrInstitution": "Sweden; Lund University Humanities Lab; LACOLA; Upper Siljan / Älvdalen",
+    "EvidenceURLs": [
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_7BD6_8",
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_7BD8_4",
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_B5B2_7",
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_B4DA_F",
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_B4D7_6",
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_B4D8_6",
+      "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0003_D049_F"
+    ],
+    "Confidence": "high",
+    "Notes": "Added as a collection-level entry rather than separate records for each task. The Germanic parent page mixes Swiss German and Upper Siljan descriptions, so the Övdalian collection page and child task/object pages should be treated as the primary evidence. The direct OBJ download for the checked .mpg object returned 403 during probing, but the archive page lists the video object and persistent handle."
   }
 ]
