@@ -46,10 +46,12 @@
     "Node": "GRIDH, University of Gothenburg",
     "URL": "https://sprakbanken-clarin.lingfil.uu.se/medlemmar/gridh.html",
     "Role": "Digital humanities infrastructure, text analysis, data visualization/publication and DH projects.",
-    "Status": "reviewed lead",
-    "SurveyTreatment": "Mentioned as a node; no confirmed Swedish language-resource dataset added.",
-    "RelatedResources": [],
-    "Notes": "Public node page mentions 3D rock-art analysis, image recognition and performing-arts mapping; these are multimodal DH leads but not confirmed Swedish language resources."
+    "Status": "confirmed resources",
+    "SurveyTreatment": "Primary source/developer lead for a GRIDH-linked literature exploration interface.",
+    "RelatedResources": [
+      "Litteraturlaboratoriet / Littlabb"
+    ],
+    "Notes": "Littlabb/Litteraturlaboratoriet is a public literature-analysis application developed by GRIDH with Litteraturbanken. It is included as a Swedish literature entry point with text-reuse tooling, extracted graphic elements, page/image metadata and public API endpoints, rather than as a single raw downloadable corpus."
   },
   {
     "Node": "Humanistlaboratoriet, Lund University",

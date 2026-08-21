@@ -1,14 +1,14 @@
 # Språkbanken Multimodal Resource Survey
 
-This repository contains a first-pass resource survey of multimodal language resources associated with Språkbanken/SWE-CLARIN and adjacent Swedish language-resource infrastructure.
+This repository contains a first-pass survey of multimodal language data resources associated with Språkbanken/SWE-CLARIN and adjacent Swedish language-resource infrastructure.
 
-The survey is exploratory rather than exhaustive. It separates confirmed public resource records from reviewed infrastructure nodes where relevant material may exist but was not found as a packaged public dataset in this pass.
+The broader area includes resources, tools and models, but this particular survey is data-focused. Its goal is not completeness; it is meant to illustrate how the JSON schema used by CLARIN ERIC resource-family descriptions can structure a practical discovery pass.
 
 ## Files
 
-- `index.html` - searchable table view of resources and Språkbanken node coverage.
+- `index.html` - searchable table view of data resource records.
 - `multimodal_swedish_resources.json` - resource records used to generate the page.
-- `node_coverage.json` - reviewed Språkbanken/SWE-CLARIN nodes and their survey treatment.
+- `node_coverage.json` - retained node-level working notes from the discovery process; not included in the public HTML view.
 - `sources.md` - source and search notes.
 - `node_reassessment.md` - notes on node-level reassessment.
 

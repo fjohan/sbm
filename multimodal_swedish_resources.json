@@ -150,6 +150,56 @@
     "Notes": "Renamed from SweDia 2000 to standardize spelling as Swedia 2000 and distinguish the public Gothenburg website from the LU Humanities Lab Archive research corpus. This public version is hosted at ling.gu.se and should not be treated as a Lund node resource."
   },
   {
+    "Name": "Litteraturlaboratoriet / Littlabb",
+    "URL": "https://littlabb.dh.gu.se/",
+    "Family": "Literary and cultural heritage interfaces",
+    "Description": "GRIDH/Litteraturbanken web application for exploring literature with digital methods. The site describes tools for text reuse in parts of Litteraturbanken material and for graphic elements in 19th-century Swedish literature; the public API exposes page/text records and extracted image elements linked to Litteraturbanken works.",
+    "Language": [
+      "swe"
+    ],
+    "Licence": "Texter: CC BY 4.0; Bilder: CC0 1.0",
+    "Size": [
+      "5,647 works in the application collection",
+      "approximately 1.6M page records exposed through the API",
+      "approximately 118k graphic-element records exposed through the API"
+    ],
+    "Annotation": [
+      "textual reuse clusters/segments",
+      "graphic-element extraction",
+      "image labels/tags",
+      "bounding boxes",
+      "IIIF image links",
+      "Litteraturbanken work and author metadata"
+    ],
+    "Infrastructure": "GRIDH; University of Gothenburg; Litteraturbanken; Littlabb API",
+    "Group": "Literary and Cultural Heritage Interfaces",
+    "Access": {
+      "Web application": "https://littlabb.dh.gu.se/",
+      "Gallery": "https://littlabb.dh.gu.se/gallery/",
+      "API root": "https://littlabb.dh.gu.se/api/",
+      "Source code": "https://github.com/gu-gridh/litteraturlabbet-frontend"
+    },
+    "Publication": "",
+    "Modalities": [
+      "literary text",
+      "page images",
+      "extracted graphic elements",
+      "metadata",
+      "interactive visualizations",
+      "API records"
+    ],
+    "CountryOrInstitution": "Sweden; University of Gothenburg; GRIDH; Litteraturbanken",
+    "EvidenceURLs": [
+      "https://littlabb.dh.gu.se/",
+      "https://littlabb.dh.gu.se/gallery/",
+      "https://littlabb.dh.gu.se/api/page/?page_size=1&depth=2",
+      "https://littlabb.dh.gu.se/api/graphic/?page_size=1&depth=2",
+      "https://github.com/gu-gridh/litteraturlabbet-frontend"
+    ],
+    "Confidence": "high",
+    "Notes": "Included as a GRIDH-linked literature resource and entry point rather than as a single raw downloadable corpus. The checked SPA bundle states that the tools are developed by GRIDH in collaboration with Litteraturbanken; the API responses confirm Swedish work metadata, text/page records, extracted graphic elements, images/IIIF links and tags. The site footer states text and image licence labels, but bulk data packaging terms should be checked before redistribution."
+  },
+  {
     "Name": "Swedia 2000 (research)",
     "URL": "https://archive.humlab.lu.se/flat/islandora/object/lat%3A10050_00_0000_0000_0000_0FF8_E",
     "Family": "Spoken corpora",

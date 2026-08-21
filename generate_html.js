@@ -1,9 +1,6 @@
 const fs = require("fs");
 
 const resources = JSON.parse(fs.readFileSync("multimodal_swedish_resources.json", "utf8"));
-const nodeCoverage = fs.existsSync("node_coverage.json")
-  ? JSON.parse(fs.readFileSync("node_coverage.json", "utf8"))
-  : [];
 
 const esc = (value) =>
   String(value ?? "")
@@ -32,14 +29,11 @@ const countBy = (items, selector) =>
 const groupCounts = countBy(resources, (resource) => resource.Group || "Other");
 const confidenceCounts = countBy(resources, (resource) => resource.Confidence || "unknown");
 const languageCounts = countBy(resources, (resource) => resource.Language || []);
-const nodeStatusCounts = countBy(nodeCoverage, (node) => node.Status || "unknown");
 
 const groups = unique(resources.map((resource) => resource.Group || "Other"));
 const languages = unique(resources.flatMap((resource) => resource.Language || []));
 const confidence = unique(resources.map((resource) => resource.Confidence || "unknown"));
 const accessTypes = unique(resources.flatMap((resource) => Object.keys(resource.Access || {})));
-const nodes = unique(nodeCoverage.map((node) => node.Node));
-const nodeStatuses = unique(nodeCoverage.map((node) => node.Status || "unknown"));
 
 const optionTags = (items) => items.map((item) => `<option value="${esc(item)}">${esc(item)}</option>`).join("");
 
@@ -52,7 +46,6 @@ const countList = (counts) =>
 const highConfidence = resources.filter((resource) => String(resource.Confidence).toLowerCase() === "high").length;
 const swedishRecords = resources.filter((resource) => (resource.Language || []).includes("swe")).length;
 const directDownloads = resources.filter((resource) => Object.keys(resource.Access || {}).includes("Download")).length;
-const confirmedNodes = nodeCoverage.filter((node) => String(node.Status).toLowerCase().includes("confirmed")).length;
 
 const html = `<!doctype html>
 <html lang="en">
@@ -266,16 +259,12 @@ const html = `<!doctype html>
 
     .filters {
       display: grid;
-      grid-template-columns: minmax(240px, 2fr) repeat(5, minmax(145px, 1fr));
+      grid-template-columns: minmax(240px, 2fr) repeat(4, minmax(145px, 1fr));
       gap: 10px;
       padding: 14px;
       border: 1px solid var(--line);
       border-radius: 5px;
       background: var(--accent-soft);
-    }
-
-    .filters.compact {
-      grid-template-columns: minmax(240px, 2fr) repeat(2, minmax(160px, 1fr));
     }
 
     label {
@@ -320,10 +309,6 @@ const html = `<!doctype html>
       min-width: 1180px;
       border-collapse: collapse;
       font-size: 0.88rem;
-    }
-
-    .nodes-table {
-      min-width: 980px;
     }
 
     th,
@@ -468,8 +453,7 @@ const html = `<!doctype html>
     }
 
     @media (max-width: 920px) {
-      .filters,
-      .filters.compact {
+      .filters {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -488,8 +472,7 @@ const html = `<!doctype html>
         width: min(220px, 70vw);
       }
 
-      .filters,
-      .filters.compact {
+      .filters {
         grid-template-columns: 1fr;
       }
 
@@ -505,14 +488,12 @@ const html = `<!doctype html>
       <div class="masthead">
         <div>
           <p class="eyebrow">Swedish multimodal language resources</p>
-          <h1>First-pass survey with Språkbanken node coverage</h1>
-          <p class="lead">A searchable, table-first inventory of public or publicly described Swedish and Sweden-hosted multimodal language resources. The node layer keeps reviewed Språkbanken/SWE-CLARIN institutions visible even when no packaged public dataset was confirmed.</p>
+          <h1>First-pass data survey</h1>
+          <p class="lead">A searchable, table-first inventory of public or publicly described Swedish and Sweden-hosted multimodal language data. The broader area includes resources, tools and models, but this version focuses on data records rather than tool or model cataloguing.</p>
           <div class="notice">This page is generated with AI assistance. The data is a discovery pass, not a completeness claim. Several nodes expose infrastructure, archive interfaces, or internal collections that may not resolve to shareable public datasets.</div>
           <div class="actions">
             <a class="button" href="multimodal_swedish_resources.json">Download resource JSON</a>
-            <a class="button" href="node_coverage.json">Download node coverage JSON</a>
             <a class="button" href="sources.md">Source notes</a>
-            <a class="button" href="node_reassessment.md">Node reassessment</a>
           </div>
         </div>
         <img class="site-logo" src="sprakbanken_clarin_logo.png" alt="Språkbanken CLARIN">
@@ -523,8 +504,6 @@ const html = `<!doctype html>
   <main class="wrap">
     <section class="stats" aria-label="Summary statistics">
       <div class="stat"><strong>${resources.length}</strong><span>resource records</span></div>
-      <div class="stat"><strong>${nodeCoverage.length}</strong><span>Språkbanken nodes reviewed</span></div>
-      <div class="stat"><strong>${confirmedNodes}</strong><span>nodes with confirmed resources</span></div>
       <div class="stat"><strong>${highConfidence}</strong><span>high-confidence records</span></div>
       <div class="stat"><strong>${swedishRecords}</strong><span>records tagged swe</span></div>
       <div class="stat"><strong>${directDownloads}</strong><span>records with download access</span></div>
@@ -543,10 +522,6 @@ const html = `<!doctype html>
         <h2>By Language Code</h2>
         <ul class="count-list">${countList(languageCounts)}</ul>
       </div>
-      <div class="panel">
-        <h2>By Node Status</h2>
-        <ul class="count-list">${countList(nodeStatusCounts)}</ul>
-      </div>
     </section>
 
     <section aria-labelledby="resources-heading">
@@ -559,12 +534,6 @@ const html = `<!doctype html>
           <select id="groupFilter">
             <option value="">All groups</option>
             ${optionTags(groups)}
-          </select>
-        </label>
-        <label>Node
-          <select id="nodeFilter">
-            <option value="">All nodes</option>
-            ${optionTags(nodes)}
           </select>
         </label>
         <label>Language
@@ -608,58 +577,19 @@ const html = `<!doctype html>
       </div>
     </section>
 
-    <section aria-labelledby="nodes-heading">
-      <h2 id="nodes-heading">Språkbanken Node Layer</h2>
-      <p>The node layer separates infrastructure leads from confirmed datasets. It includes Gothenburg, KTH, Isof, Uppsala, GRIDH, Lund, Umeå, Stockholm, KB/KBLab, Linköping and Riksarkivet.</p>
-      <div class="filters compact" aria-label="Node filters">
-        <label>Search Nodes
-          <input id="nodeSearch" type="search" placeholder="Node, role, resource, note">
-        </label>
-        <label>Status
-          <select id="nodeStatusFilter">
-            <option value="">All statuses</option>
-            ${optionTags(nodeStatuses)}
-          </select>
-        </label>
-        <label>Treatment
-          <select id="nodeTreatmentFilter">
-            <option value="">All treatments</option>
-            ${optionTags(unique(nodeCoverage.map((node) => node.SurveyTreatment)))}
-          </select>
-        </label>
-      </div>
-      <p class="result-line" id="nodeCount"></p>
-      <div class="table-wrap">
-        <table class="nodes-table">
-          <thead>
-            <tr>
-              <th>Node</th>
-              <th>Role</th>
-              <th>Status</th>
-              <th>Treatment</th>
-              <th>Related Resources</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody id="nodeRows"></tbody>
-        </table>
-      </div>
-    </section>
-
     <details>
       <summary>Scope and Caveats</summary>
       <div class="details-body">
-        <p>The survey favors public evidence: dataset pages, CLARIN/SWE-CLARIN node pages, repository records, archive interfaces and source notes. Hosted-in-Sweden resources are retained when they are relevant infrastructure leads, but non-Swedish language-documentation collections are not expanded into the main resource list unless Swedish content is verified.</p>
+        <p>The purpose is to illustrate how the JSON schema used by CLARIN ERIC resource-family descriptions can structure a practical resource survey. It is not a completeness claim and should not be read as a census of Swedish multimodal language data.</p>
+        <p>The survey favors public evidence: dataset pages, repository records, archive interfaces, API responses and source notes. Hosted-in-Sweden resources are retained when they are relevant data leads, but non-Swedish language-documentation collections are not expanded into the main resource list unless Swedish content is verified.</p>
         <p>Some institutions likely hold more internal or restricted multimodal data than can be represented here. Sensitive speech, archival and personal-data collections may be described by infrastructure pages without a downloadable corpus record.</p>
       </div>
     </details>
   </main>
 
   <script id="resource-data" type="application/json">${jsonForHtml(resources)}</script>
-  <script id="node-data" type="application/json">${jsonForHtml(nodeCoverage)}</script>
   <script>
     const resources = JSON.parse(document.getElementById("resource-data").textContent);
-    const nodes = JSON.parse(document.getElementById("node-data").textContent);
     const resourceSort = { field: "Name", direction: "ascending" };
 
     const byId = (id) => document.getElementById(id);
@@ -721,23 +651,9 @@ const html = `<!doctype html>
       });
     }
 
-    function nodeMatchesResource(node, resource) {
-      if ((node.RelatedResources || []).includes(resource.Name)) return true;
-      const haystack = resourceSearchText(resource);
-      const nodeName = text(node.Node);
-      const simpleName = nodeName
-        .replace("språkbanken", "")
-        .replace("sprakbanken", "")
-        .replace("university of", "")
-        .replace("institutionen för", "")
-        .trim();
-      return haystack.includes(nodeName) || (simpleName.length > 3 && haystack.includes(simpleName));
-    }
-
     function matchesResource(resource) {
       const query = text(byId("resourceSearch").value).trim();
       const group = byId("groupFilter").value;
-      const node = byId("nodeFilter").value;
       const language = byId("languageFilter").value;
       const confidence = byId("confidenceFilter").value;
       const access = byId("accessFilter").value;
@@ -747,10 +663,6 @@ const html = `<!doctype html>
       if (language && !(resource.Language || []).includes(language)) return false;
       if (confidence && resource.Confidence !== confidence) return false;
       if (access && !Object.keys(resource.Access || {}).includes(access)) return false;
-      if (node) {
-        const selectedNode = nodes.find((item) => item.Node === node);
-        if (!selectedNode || !nodeMatchesResource(selectedNode, resource)) return false;
-      }
       return true;
     }
 
@@ -791,33 +703,7 @@ const html = `<!doctype html>
       }).join("");
     }
 
-    function matchesNode(node) {
-      const query = text(byId("nodeSearch").value).trim();
-      const status = byId("nodeStatusFilter").value;
-      const treatment = byId("nodeTreatmentFilter").value;
-      if (query && !text(JSON.stringify(node)).includes(query)) return false;
-      if (status && node.Status !== status) return false;
-      if (treatment && node.SurveyTreatment !== treatment) return false;
-      return true;
-    }
-
-    function renderNodes() {
-      const shown = nodes.filter(matchesNode);
-      byId("nodeCount").textContent = shown.length + " of " + nodes.length + " Språkbanken nodes shown";
-      byId("nodeRows").innerHTML = shown.map((node) => {
-        const status = '<span class="chip ' + chipClass(node.Status) + '">' + escapeHtml(node.Status || "unknown") + '</span>';
-        return '<tr>' +
-          '<td class="name-cell"><strong><a href="' + escapeHtml(node.URL || "#") + '">' + escapeHtml(node.Node) + '</a></strong></td>' +
-          '<td>' + escapeHtml(node.Role || "") + '</td>' +
-          '<td class="tiny-cell">' + status + '</td>' +
-          '<td>' + escapeHtml(node.SurveyTreatment || "") + '</td>' +
-          '<td>' + chips(node.RelatedResources || []) + '</td>' +
-          '<td class="wide-cell">' + escapeHtml(node.Notes || "") + '</td>' +
-          '</tr>';
-      }).join("");
-    }
-
-    ["resourceSearch", "groupFilter", "nodeFilter", "languageFilter", "confidenceFilter", "accessFilter"].forEach((id) => {
+    ["resourceSearch", "groupFilter", "languageFilter", "confidenceFilter", "accessFilter"].forEach((id) => {
       byId(id).addEventListener("input", renderResources);
       byId(id).addEventListener("change", renderResources);
     });
@@ -835,13 +721,7 @@ const html = `<!doctype html>
       });
     });
 
-    ["nodeSearch", "nodeStatusFilter", "nodeTreatmentFilter"].forEach((id) => {
-      byId(id).addEventListener("input", renderNodes);
-      byId(id).addEventListener("change", renderNodes);
-    });
-
     renderResources();
-    renderNodes();
   </script>
 </body>
 </html>`;
